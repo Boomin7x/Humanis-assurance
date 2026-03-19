@@ -1,0 +1,221 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "products": "Produits",
+    "contact": "Contact",
+    "cta": "Demander un devis",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "products": "Produits",
+    "contact": "Contact",
+    "getQuote": "Demander un devis",
+    "language": "Language"
+  },
+  "hero": {
+    "tagline": "Cabinet de courtage · Douala, Cameroun",
+    "title": "Nous protégeons ce qui compte le plus pour vous",
+    "subtitle": "Courtage d'assurances · Risk Management · Programmes Internationaux",
+    "cta": {
+      "primary": "Demander un devis",
+      "secondary": "Découvrir nos services"
+    },
+    "trust": {
+      "clients": "500+ clients",
+      "experience": "15+ ans d'expérience",
+      "certified": "Agréé CIMA"
+    }
+  },
+  "sections": {
+    "stats": {
+      "clients": "Clients accompagnés",
+      "experience": "Années d'expérience",
+      "partners": "Compagnies partenaires",
+      "expertise": "Pôles d'expertise"
+    },
+    "services": {
+      "overline": "Nos expertises",
+      "title": "Ce que nous faisons pour vous",
+      "cta": "Voir tous nos services"
+    },
+    "about": {
+      "overline": "Qui sommes-nous",
+      "title": "Qui sommes-nous?",
+      "cta": "En savoir plus",
+      "experience": "15+ ans d'expérience"
+    },
+    "products": {
+      "overline": "Nos produits",
+      "title": "Une couverture complète pour chaque besoin",
+      "iardt": {
+        "title": "Incendie, Accidents, Risques Divers & Transport",
+        "count": "14 produits",
+        "cta": "Explorer"
+      },
+      "life": {
+        "title": "Prévoyance & Épargne",
+        "count": "8 produits",
+        "cta": "Explorer"
+      }
+    },
+    "process": {
+      "overline": "Notre processus",
+      "title": "De la demande à la protection",
+      "steps": {
+        "contact": "Contact initial",
+        "audit": "Audit des besoins",
+        "proposal": "Proposition de couverture",
+        "subscription": "Souscription",
+        "followup": "Suivi & renouvellement"
+      }
+    },
+    "testimonials": {
+      "overline": "Témoignages",
+      "title": "Ce que disent nos clients"
+    },
+    "partners": {
+      "overline": "Nos partenaires assureurs",
+      "subtitle": "Nous travaillons avec les meilleures compagnies d'assurance du marché"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Humanis Assurances — Courtage d'assurances à Douala, Cameroun",
+      "description": "Cabinet de courtage en assurances à Douala. Expertise en courtage, risk management et programmes internationaux pour entreprises et particuliers.",
+      "cta": {
+        "title": "Prêt à protéger votre avenir?",
+        "subtitle": "Contactez nos experts pour une solution sur mesure",
+        "button": "Demander un devis gratuit"
+      }
+    },
+    "about": {
+      "title": "À propos de Humanis Assurances",
+      "subtitle": "Votre partenaire de confiance en assurances depuis plus de 15 ans",
+      "description": "Découvrez l'équipe et l'expertise qui font de Humanis Assurances votre partenaire de confiance en assurances au Cameroun.",
+      "breadcrumb": "À propos",
+      "missions": {
+        "overline": "Nos missions",
+        "items": {
+          "1": "Vulgarisation des polices d'assurances",
+          "2": "Accompagnement PME-PMI Camerounaise",
+          "3": "Service globalisé grandes entreprises & international",
+          "4": "Risk management comme pilier PME-PMI"
+        }
+      },
+      "values": {
+        "overline": "Nos valeurs",
+        "listening": {
+          "title": "Écoute",
+          "description": "Nous écoutons vos besoins pour vous offrir des solutions adaptées"
+        },
+        "availability": {
+          "title": "Disponibilité",
+          "description": "Notre équipe est à votre disposition quand vous en avez besoin"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Nous adoptons les meilleures pratiques du marché"
+        },
+        "commitment": {
+          "title": "Respect des engagements",
+          "description": "Nous honorons toujours nos promesses"
+        }
+      },
+      "expertise": {
+        "title": "Notre expertise",
+        "since": "Depuis 2009",
+        "items": {
+          "audit": "Audit des portefeuilles",
+          "counsel": "Conseil et Orientation",
+          "management": "Gestion transparente et efficace des contrats",
+          "representation": "Représentation et Défense des intérêts de l'assuré",
+          "risk": "Risk Management"
+        }
+      },
+      "team": {
+        "overline": "Notre équipe",
+        "title": "Des experts à votre service"
+      },
+      "cta": {
+        "title": "Travaillons ensemble",
+        "subtitle": "Découvrez comment nous pouvons vous accompagner",
+        "button": "Nous contacter"
+      }
+    },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Courtage · Risk Management · Programmes Internationaux",
+      "description": "Découvrez notre gamme complète de services en assurances pour particuliers et entreprises.",
+      "breadcrumb": "Services"
+    },
+    "products": {
+      "title": "Nos Produits",
+      "subtitle": "IARDT & Assurance Vie — des solutions pour chaque profil",
+      "description": "Explorez notre catalogue complet de produits d'assurance adaptés à vos besoins.",
+      "breadcrumb": "Produits"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "subtitle": "Notre équipe vous répond dans les 24 heures",
+      "description": "Prenez contact avec nos experts pour discuter de vos besoins en assurance.",
+      "breadcrumb": "Contact"
+    }
+  },
+  "footer": {
+    "tagline": "Nous accompagnons les Entreprises et les Particuliers",
+    "services": "Services",
+    "products": "Produits",
+    "contact": "Contact",
+    "address": "688, Rue Joffre Akwa-Douala",
+    "hours": "Lundi–Vendredi 8h–17h · Samedi 8h–13h",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "copyright": "© 2024 Humanis Assurances. Tous droits réservés."
+  },
+  "whatsapp": {
+    "tooltip": "Discutez avec nous sur WhatsApp",
+    "label": "Contacter via WhatsApp"
+  },
+  "contact": {
+    "form": {
+      "name": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "type": "Vous êtes",
+      "subject": "Objet",
+      "message": "Message",
+      "submit": "Envoyer le message",
+      "success": "Message envoyé, nous vous répondons dans 24h",
+      "error": "Une erreur est survenue, veuillez réessayer"
+    },
+    "types": {
+      "individual": "Particulier",
+      "company": "Entreprise",
+      "other": "Autre"
+    },
+    "subjects": {
+      "brokerage": "Courtage",
+      "risk": "Risk Management",
+      "international": "Programmes Internationaux",
+      "quote": "Devis",
+      "other": "Autre"
+    },
+    "whatsapp": "Discuter sur WhatsApp"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "readMore": "Lire la suite",
+    "getQuote": "Demander un devis",
+    "contact": "Nous contacter",
+    "phone": "Téléphone",
+    "email": "Email",
+    "website": "Site web",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue"
+  }
+}

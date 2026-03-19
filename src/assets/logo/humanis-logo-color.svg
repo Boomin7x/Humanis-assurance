@@ -1,0 +1,7 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="60" rx="8" fill="#F7F9FC"/>
+  <rect x="10" y="15" width="30" height="30" rx="6" fill="#0D5EAF"/>
+  <path d="M20 25L25 30L35 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="25" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" fill="#1C2B45">HUMANIS</text>
+  <text x="50" y="40" font-family="DM Sans, sans-serif" font-size="10" fill="#4A5568">ASSURANCES</text>
+</svg>

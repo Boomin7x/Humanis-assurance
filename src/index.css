@@ -1,0 +1,247 @@
+/*
+ * HUMANIS ASSURANCES - Global Styles & CSS Custom Properties
+ * Design System: "Refined Precision"
+ * Font Strategy: ClashDisplay (headings) + Satoshi (body)
+ */
+
+/* ─── FONT FACES ─────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Variable.woff2') format('woff2-variations'),
+       url('/fonts/ClashDisplay/ClashDisplay-Variable.woff') format('woff'),
+       url('/fonts/ClashDisplay/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Regular.woff2') format('woff2'),
+       url('/fonts/ClashDisplay/ClashDisplay-Regular.woff') format('woff'),
+       url('/fonts/ClashDisplay/ClashDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Medium.woff2') format('woff2'),
+       url('/fonts/ClashDisplay/ClashDisplay-Medium.woff') format('woff'),
+       url('/fonts/ClashDisplay/ClashDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay/ClashDisplay-Semibold.woff') format('woff'),
+       url('/fonts/ClashDisplay/ClashDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Bold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay/ClashDisplay-Bold.woff') format('woff'),
+       url('/fonts/ClashDisplay/ClashDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Variable.woff2') format('woff2-variations'),
+       url('/fonts/Satoshi/Satoshi-Variable.woff') format('woff'),
+       url('/fonts/Satoshi/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Regular.woff2') format('woff2'),
+       url('/fonts/Satoshi/Satoshi-Regular.woff') format('woff'),
+       url('/fonts/Satoshi/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Medium.woff2') format('woff2'),
+       url('/fonts/Satoshi/Satoshi-Medium.woff') format('woff'),
+       url('/fonts/Satoshi/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi/Satoshi-Bold.woff2') format('woff2'),
+       url('/fonts/Satoshi/Satoshi-Bold.woff') format('woff'),
+       url('/fonts/Satoshi/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── HARD RESET ─────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── CSS CUSTOM PROPERTIES ─────────────────────────────────────────────── */
+
+:root {
+  /* Brand Colors */
+  --color-primary:        #0D5EAF;
+  --color-primary-dark:   #0A4A91;
+  --color-primary-light:  #EBF3FC;
+  --color-teal:           #1A9E75;
+  --color-teal-dark:      #148560;
+  --color-navy:           #1C2B45;
+
+  /* Neutrals */
+  --color-bg:             #F7F9FC;
+  --color-bg-alt:         #EEF3FA;
+  --color-surface:        #FFFFFF;
+  --color-border:         #DDE3EC;
+  --color-text:           #1C2B45;
+  --color-text-muted:     #4A5568;
+
+  /* Elevation (blue-tinted shadows) */
+  --shadow-xs:            0 1px 3px 0 rgba(13, 94, 175, 0.06);
+  --shadow-sm:            0 2px 6px 0 rgba(13, 94, 175, 0.08), 0 1px 2px 0 rgba(13, 94, 175, 0.04);
+  --shadow-md:            0 4px 12px 0 rgba(13, 94, 175, 0.10), 0 2px 4px 0 rgba(13, 94, 175, 0.06);
+  --shadow-lg:            0 8px 24px 0 rgba(13, 94, 175, 0.12), 0 4px 8px 0 rgba(13, 94, 175, 0.06);
+
+  /* Motion */
+  --ease-smooth:          cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-sharp:           cubic-bezier(0.25, 0, 0, 1);
+  --duration-base:        200ms;
+  --duration-enter:       280ms;
+
+  /* Layout */
+  --max-width:            1280px;
+  --nav-height:           72px;
+  --section-py:           96px;
+  --gutter:               80px;
+
+  /* Typography */
+  --font-heading:         'ClashDisplay', system-ui, -apple-system, sans-serif;
+  --font-body:            'Satoshi', system-ui, -apple-system, sans-serif;
+  --font-mono:            ui-monospace, 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+}
+
+/* ─── SMOOTH SCROLLING ──────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── SELECTION COLOR ───────────────────────────────────────────────────── */
+
+::selection {
+  background: #0D5EAF;
+  color: #FFFFFF;
+}
+
+/* ─── CUSTOM SCROLLBAR ──────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F9FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0D5EAF;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0A4A91;
+}
+
+/* ─── FOCUS RING ─────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid #0D5EAF;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── BODY BASELINE ──────────────────────────────────────────────────────── */
+
+body {
+  margin: 0;
+  background-color: #F7F9FC;
+  color: #1C2B45;
+  /* font-family: "Satoshi", system-ui, -apple-system, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── ROOT CONTAINER ─────────────────────────────────────────────────────── */
+
+#root {
+  min-height: 100vh;
+}
+
+/* ─── UTILITY CLASSES ────────────────────────────────────────────────────── */
+
+/* Gradient text utility for hero H1 */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #B3D4F8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers that don't support background-clip */
+}
+
+/* Glass surface utility for navbar transparent state, special cards */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Image shimmer loading animation */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.img-shimmer {
+  background: linear-gradient(90deg, #EEF3FA 25%, #DDE3EC 50%, #EEF3FA 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

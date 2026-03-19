@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "products": "Products",
+    "contact": "Contact",
+    "getQuote": "Get Quote",
+    "language": "Langue"
+  },
+  "hero": {
+    "tagline": "Insurance Brokerage · Douala, Cameroon",
+    "title": "We protect what matters most to you",
+    "subtitle": "Insurance Brokerage · Risk Management · International Programs",
+    "cta": {
+      "primary": "Get Quote",
+      "secondary": "Discover our services"
+    },
+    "trust": {
+      "clients": "500+ clients",
+      "experience": "15+ years experience",
+      "certified": "CIMA certified"
+    }
+  },
+  "sections": {
+    "stats": {
+      "clients": "Clients served",
+      "experience": "Years of experience",
+      "partners": "Partner companies",
+      "expertise": "Areas of expertise"
+    },
+    "services": {
+      "overline": "Our expertise",
+      "title": "What we do for you",
+      "cta": "View all services"
+    },
+    "about": {
+      "overline": "Who we are",
+      "title": "About us",
+      "cta": "Learn more",
+      "experience": "15+ years experience"
+    },
+    "products": {
+      "overline": "Our products",
+      "title": "Complete coverage for every need",
+      "iardt": {
+        "title": "Fire, Accident, Miscellaneous Risks & Transport",
+        "count": "14 products",
+        "cta": "Explore"
+      },
+      "life": {
+        "title": "Life & Savings Insurance",
+        "count": "8 products",
+        "cta": "Explore"
+      }
+    },
+    "process": {
+      "overline": "Our process",
+      "title": "From request to protection",
+      "steps": {
+        "contact": "Initial contact",
+        "audit": "Needs assessment",
+        "proposal": "Coverage proposal",
+        "subscription": "Subscription",
+        "followup": "Follow-up & renewal"
+      }
+    },
+    "testimonials": {
+      "overline": "Testimonials",
+      "title": "What our clients say"
+    },
+    "partners": {
+      "overline": "Our insurance partners",
+      "subtitle": "We work with the best insurance companies in the market"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Humanis Insurance — Insurance Brokerage in Douala, Cameroon",
+      "description": "Insurance brokerage company in Douala. Expertise in brokerage, risk management and international programs for businesses and individuals.",
+      "cta": {
+        "title": "Ready to protect your future?",
+        "subtitle": "Contact our experts for a tailored solution",
+        "button": "Get free quote"
+      }
+    },
+    "about": {
+      "title": "About Humanis Insurance",
+      "subtitle": "Your trusted insurance partner for over 15 years",
+      "description": "Discover the team and expertise that make Humanis Insurance your trusted insurance partner in Cameroon.",
+      "breadcrumb": "About",
+      "missions": {
+        "overline": "Our missions",
+        "items": {
+          "1": "Insurance policy popularization",
+          "2": "Support for Cameroonian SMEs",
+          "3": "Globalized service for large enterprises & international",
+          "4": "Risk management as SME pillar"
+        }
+      },
+      "values": {
+        "overline": "Our values",
+        "listening": {
+          "title": "Listening",
+          "description": "We listen to your needs to offer tailored solutions"
+        },
+        "availability": {
+          "title": "Availability",
+          "description": "Our team is available when you need us"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We adopt the best market practices"
+        },
+        "commitment": {
+          "title": "Commitment respect",
+          "description": "We always honor our promises"
+        }
+      },
+      "expertise": {
+        "title": "Our expertise",
+        "since": "Since 2009",
+        "items": {
+          "audit": "Portfolio audit",
+          "counsel": "Advice and guidance",
+          "management": "Transparent and efficient contract management",
+          "representation": "Representation and defense of insured interests",
+          "risk": "Risk Management"
+        }
+      },
+      "team": {
+        "overline": "Our team",
+        "title": "Experts at your service"
+      },
+      "cta": {
+        "title": "Let's work together",
+        "subtitle": "Discover how we can support you",
+        "button": "Contact us"
+      }
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Brokerage · Risk Management · International Programs",
+      "description": "Discover our complete range of insurance services for individuals and businesses.",
+      "breadcrumb": "Services"
+    },
+    "products": {
+      "title": "Our Products",
+      "subtitle": "Non-Life & Life Insurance — solutions for every profile",
+      "description": "Explore our complete catalog of insurance products tailored to your needs.",
+      "breadcrumb": "Products"
+    },
+    "contact": {
+      "title": "Contact us",
+      "subtitle": "Our team responds within 24 hours",
+      "description": "Get in touch with our experts to discuss your insurance needs.",
+      "breadcrumb": "Contact"
+    }
+  },
+  "footer": {
+    "tagline": "We support Businesses and Individuals",
+    "services": "Services",
+    "products": "Products",
+    "contact": "Contact",
+    "address": "688, Rue Joffre Akwa-Douala",
+    "hours": "Monday–Friday 8am–5pm · Saturday 8am–1pm",
+    "legal": "Legal mentions",
+    "privacy": "Privacy policy",
+    "copyright": "© 2024 Humanis Insurance. All rights reserved."
+  },
+  "contact": {
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "type": "You are",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent, we'll respond within 24h",
+      "error": "An error occurred, please try again"
+    },
+    "types": {
+      "individual": "Individual",
+      "company": "Company",
+      "other": "Other"
+    },
+    "subjects": {
+      "brokerage": "Brokerage",
+      "risk": "Risk Management",
+      "international": "International Programs",
+      "quote": "Quote",
+      "other": "Other"
+    },
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "getQuote": "Get quote",
+    "contact": "Contact us",
+    "phone": "Phone",
+    "email": "Email",
+    "website": "Website",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  }
+}

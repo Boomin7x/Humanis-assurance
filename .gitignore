@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Image directories (photos are large) - add to repo only after optimization
+src/assets/images/hero/*.jpg
+src/assets/images/hero/*.jpeg
+src/assets/images/hero/*.png
+src/assets/images/hero/*.webp
+src/assets/images/office/*.jpg
+src/assets/images/office/*.jpeg
+src/assets/images/office/*.png
+src/assets/images/office/*.webp
+src/assets/images/services/*.jpg
+src/assets/images/services/*.jpeg
+src/assets/images/services/*.png
+src/assets/images/services/*.webp
+src/assets/images/clients/*.jpg
+src/assets/images/clients/*.jpeg
+src/assets/images/clients/*.png
+src/assets/images/clients/*.webp
+src/assets/images/team/*.jpg
+src/assets/images/team/*.jpeg
+src/assets/images/team/*.png
+src/assets/images/team/*.webp
+
+# Keep SVG files (logos and icons)
+!src/assets/**/*.svg
