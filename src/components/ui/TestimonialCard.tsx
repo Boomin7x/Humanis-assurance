@@ -20,6 +20,8 @@ import {
   Chip,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
@@ -104,6 +106,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
   const typeConfig = clientConfig[clientType];
 
+  // Mobile-first: disable animations on mobile for better performance
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   // Render star rating
   const renderStars = (): React.ReactNode => {
     return (
@@ -112,7 +118,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <Star
             key={star}
             sx={{
-              fontSize: "1rem",
+              // Mobile-first responsive star sizing
+              fontSize: { xs: "0.875rem", sm: "1rem" },
               color: star <= rating ? TEAL_500 : NEUTRAL_200,
             }}
           />
@@ -121,11 +128,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     );
   };
 
-  const MotionCard = animated ? motion.div : "div";
+  const MotionCard = animated && !isMobile ? motion.div : "div";
 
   return (
     <MotionCard
-      {...(animated && {
+      {...(animated && !isMobile && {
         whileHover: { y: -4, transition: { duration: 0.2, ease: "easeOut" } },
         initial: { y: 0 },
         animate: { y: 0 },
@@ -144,17 +151,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           overflow: "hidden",
           transition: "all 200ms ease",
           "&:hover": {
-            borderColor: NEUTRAL_200,
+            borderColor: PRIMARY_500,
             borderLeftColor: TEAL_500, // Keep accent border
             backgroundColor: GLASS_NAVY_04,
-            boxShadow: `0 4px 12px rgba(13, 94, 175, 0.08), 0 2px 4px rgba(13, 94, 175, 0.04)`,
+            boxShadow: "none", // NO SHADOWS - depth through border contrast
           },
         }}
       >
         <CardContent
           sx={{
-            p: { xs: 3, md: 4 },
-            pb: { xs: 3, md: 4 },
+            // Mobile-first responsive padding
+            p: { xs: 2.5, sm: 3, md: 4 },
+            pb: { xs: '20px !important', sm: '24px !important', md: '32px !important' },
             display: "flex",
             flexDirection: "column",
             height: "100%",
@@ -165,7 +173,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             direction="row"
             alignItems="center"
             justifyContent="space-between"
-            sx={{ mb: 2 }}
+            sx={{ mb: { xs: 1.5, sm: 2 } }}
           >
             <Box>{renderStars()}</Box>
 
@@ -200,22 +208,24 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             sx={{
               fontStyle: "italic",
               color: NAVY_800,
-              lineHeight: 1.65,
-              fontSize: "1rem",
+              lineHeight: { xs: 1.6, sm: 1.65 },
+              // Mobile-first responsive quote sizing
+              fontSize: { xs: "0.9375rem", sm: "1rem" },
               fontWeight: 400,
-              mb: 3,
+              mb: { xs: 2.5, sm: 3 },
               flex: 1,
               position: "relative",
-              pl: 2,
+              pl: { xs: 1.5, sm: 2 },
               pr: 1,
               "&::before": {
                 content: '"\\201C"',
-                fontSize: "2.5rem",
+                // Mobile-first responsive quote mark sizing
+                fontSize: { xs: "2rem", sm: "2.5rem" },
                 fontWeight: 300,
                 color: TEAL_500,
                 position: "absolute",
-                top: "-12px",
-                left: "-8px",
+                top: { xs: "-10px", sm: "-12px" },
+                left: { xs: "-6px", sm: "-8px" },
                 lineHeight: 1,
                 opacity: 0.6,
                 fontFamily: "serif",
@@ -234,7 +244,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           {/* Author Section */}
           <Stack
             direction="row"
-            spacing={2}
+            spacing={{ xs: 1.5, sm: 2 }}
             alignItems="center"
             sx={{ mt: "auto" }}
           >
@@ -244,14 +254,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 src={avatar}
                 alt={`${author} - Client Humanis Assurances`}
                 sx={{
-                  width: 56,
-                  height: 56,
+                  // Mobile-first responsive avatar sizing
+                  width: { xs: 48, sm: 56 },
+                  height: { xs: 48, sm: 56 },
                   backgroundColor: typeConfig.color,
                   color: WHITE,
                   fontWeight: 600,
-                  fontSize: "1rem",
-                  border: `2px solid ${typeConfig.bgColor}`,
-                  boxShadow: `0 2px 8px ${typeConfig.color}20`,
+                  fontSize: { xs: "0.875rem", sm: "1rem" },
+                  border: { xs: `2px solid ${WHITE}`, sm: `3px solid ${WHITE}` },
+                  outline: `2px solid ${typeConfig.color}`,
+                  boxShadow: "none", // NO SHADOWS - depth through border layering
                 }}
               >
                 {!avatar && getInitials(author)}
@@ -263,18 +275,20 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   position: "absolute",
                   bottom: -2,
                   right: -2,
-                  width: 20,
-                  height: 20,
+                  // Mobile-first responsive badge sizing
+                  width: { xs: 18, sm: 20 },
+                  height: { xs: 18, sm: 20 },
                   borderRadius: "50%",
                   backgroundColor: typeConfig.color,
                   color: WHITE,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: `0 1px 3px ${typeConfig.color}40`,
+                  border: { xs: `1.5px solid ${WHITE}`, sm: `2px solid ${WHITE}` },
+                  boxShadow: "none", // NO SHADOWS - depth through border contrast
                 }}
               >
-                <typeConfig.icon sx={{ fontSize: "0.75rem" }} />
+                <typeConfig.icon sx={{ fontSize: { xs: "0.625rem", sm: "0.75rem" } }} />
               </Box>
             </Box>
 
@@ -286,9 +300,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 sx={{
                   fontWeight: 600,
                   color: NAVY_800,
-                  fontSize: "1rem",
+                  // Mobile-first responsive author name sizing
+                  fontSize: { xs: "0.9375rem", sm: "1rem" },
                   lineHeight: 1.3,
-                  mb: 0.5,
+                  mb: { xs: 0.375, sm: 0.5 },
                   letterSpacing: "-0.005em",
                 }}
               >
@@ -300,9 +315,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 variant="body2"
                 sx={{
                   color: NEUTRAL_600,
-                  fontSize: "0.875rem",
+                  // Mobile-first responsive company name sizing
+                  fontSize: { xs: "0.8125rem", sm: "0.875rem" },
                   lineHeight: 1.3,
-                  mb: 1.5,
+                  mb: { xs: 1.25, sm: 1.5 },
                   fontWeight: 500,
                 }}
               >
@@ -310,7 +326,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
               </Typography>
 
               {/* Sector & Client Type Badges */}
-              <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+              <Stack direction="row" spacing={{ xs: 0.75, sm: 1 }} flexWrap="wrap" useFlexGap>
                 <Chip
                   label={sector}
                   size="small"
@@ -318,8 +334,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                     backgroundColor: `${TEAL_500}12`,
                     color: TEAL_500,
                     fontWeight: 500,
-                    fontSize: "0.6875rem",
-                    height: 24,
+                    // Mobile-first responsive badge sizing
+                    fontSize: { xs: "0.625rem", sm: "0.6875rem" },
+                    height: { xs: 22, sm: 24 },
                     borderRadius: RADIUS.pill / 8,
                     "& .MuiChip-label": {
                       px: 1.5,
@@ -332,14 +349,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   label={typeConfig.label}
                   size="small"
                   icon={
-                    <typeConfig.icon sx={{ fontSize: "0.75rem !important" }} />
+                    <typeConfig.icon sx={{ fontSize: { xs: "0.625rem !important", sm: "0.75rem !important" } }} />
                   }
                   sx={{
                     backgroundColor: typeConfig.bgColor,
                     color: typeConfig.color,
                     fontWeight: 500,
-                    fontSize: "0.6875rem",
-                    height: 24,
+                    fontSize: { xs: "0.625rem", sm: "0.6875rem" },
+                    height: { xs: 22, sm: 24 },
                     borderRadius: RADIUS.pill / 8,
                     "& .MuiChip-label": {
                       px: 1,
@@ -359,8 +376,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                       backgroundColor: `${PRIMARY_500}12`,
                       color: PRIMARY_500,
                       fontWeight: 600,
-                      fontSize: "0.625rem",
-                      height: 24,
+                      fontSize: { xs: "0.5625rem", sm: "0.625rem" },
+                      height: { xs: 22, sm: 24 },
                       borderRadius: RADIUS.pill / 8,
                       "& .MuiChip-label": {
                         px: 1,

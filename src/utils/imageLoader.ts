@@ -3,7 +3,7 @@
 
 export const images = {
   hero: {
-    teamGroup: "/imgs/pexels-august-de-richelieu-4262173.jpg", // Professional business team meeting
+    teamGroup: "/imgs/pexels-edmond-dantes-4342493.jpg", // Professional business team meeting
   },
   office: {
     exterior: "/imgs/pexels-rebrand-cities-581004-1367274.jpg", // Modern office building exterior

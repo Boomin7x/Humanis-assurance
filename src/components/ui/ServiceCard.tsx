@@ -19,6 +19,8 @@ import {
   Box,
   Link,
   Stack,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material'
 import { motion } from 'framer-motion'
 import { Link as RouterLink } from 'react-router-dom'
@@ -73,11 +75,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const isExternal = href.startsWith('http')
   const accentColorValue = accentColor === 'blue' ? PRIMARY_500 : TEAL_500
 
-  const MotionCard = animated ? motion.div : 'div'
+  // Mobile-first: disable animations on mobile for better performance
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+
+  const MotionCard = animated && !isMobile ? motion.div : 'div'
 
   return (
     <MotionCard
-      {...(animated && {
+      {...(animated && !isMobile && {
         whileHover: { y: -4, scale: 1.02, transition: { duration: 0.2 } },
         initial: { y: 0, scale: 1 },
         animate: { y: 0, scale: 1 },
@@ -105,10 +111,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             backgroundColor: GLASS_NAVY_04,
             boxShadow: `0 4px 12px rgba(13, 94, 175, 0.08), 0 2px 4px rgba(13, 94, 175, 0.04)`,
             textDecoration: 'none',
-            transform: 'translateY(-2px)',
-            // Photo hover effect
+            // Disable hover transform on mobile for better touch experience
+            transform: { xs: 'none', md: 'translateY(-2px)' },
+            // Photo hover effect - desktop only
             '& .service-photo': {
-              transform: 'scale(1.05)',
+              transform: { xs: 'none', md: 'scale(1.05)' },
             },
           },
           // External link behavior
@@ -126,7 +133,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             sx={{
               position: 'relative',
               width: '100%',
-              height: 180,
+              height: { xs: 160, sm: 180, md: 200 }, // Mobile-first responsive height
               overflow: 'hidden',
               borderRadius: `${RADIUS.md}px ${RADIUS.md}px 0 0`,
               '&::after': {
@@ -162,13 +169,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         <CardContent
           sx={{
-            p: 4,
-            pt: photo ? 3 : 4,
-            pb: '32px !important', // Override MUI default
+            // Mobile-first responsive padding
+            p: { xs: 2.5, sm: 3, md: 4 },
+            pt: photo ? { xs: 2, sm: 2.5, md: 3 } : { xs: 2.5, sm: 3, md: 4 },
+            pb: { xs: '20px !important', sm: '24px !important', md: '32px !important' },
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
-            gap: 3,
+            gap: { xs: 2, sm: 2.5, md: 3 },
             flex: 1,
           }}
         >
@@ -178,8 +186,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 56,
-              height: 56,
+              // Mobile-first responsive sizing with touch target minimum
+              width: { xs: 48, sm: 52, md: 56 },
+              height: { xs: 48, sm: 52, md: 56 },
               borderRadius: RADIUS.md / 8,
               backgroundColor: `${accentColorValue}12`, // 7% opacity
               color: accentColorValue,
@@ -197,8 +206,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           >
             <Icon
               icon={icon}
-              width="28"
-              height="28"
+              width={isMobile ? "24" : "28"}
+              height={isMobile ? "24" : "28"}
               style={{
                 color: accentColorValue,
               }}
@@ -206,13 +215,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </Box>
 
           {/* Content */}
-          <Stack spacing={2} sx={{ flex: 1 }}>
+          <Stack spacing={{ xs: 1.5, sm: 2 }} sx={{ flex: 1 }}>
             {/* Title - Insurance Service Authority */}
             <Typography
               variant="h4"
               component="h3"
               sx={{
-                                fontSize: '1.25rem',
+                // Mobile-first responsive typography
+                fontSize: { xs: '1.125rem', sm: '1.1875rem', md: '1.25rem' },
                 fontWeight: 600,
                 lineHeight: 1.3,
                 color: NAVY_800,
@@ -239,9 +249,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               variant="body2"
               sx={{
                 color: NEUTRAL_600,
-                lineHeight: 1.65,
+                lineHeight: { xs: 1.6, sm: 1.65 },
                 flex: 1,
-                fontSize: '0.9375rem',
+                // Mobile-first responsive font size
+                fontSize: { xs: '0.875rem', sm: '0.90625rem', md: '0.9375rem' },
                 fontWeight: 400,
                 '& strong': {
                   color: NAVY_800,
@@ -257,7 +268,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <Box
             sx={{
               mt: 'auto',
-              pt: 2,
+              pt: { xs: 1.5, sm: 2 },
               borderTop: `1px solid ${NEUTRAL_200}`,
             }}
           >
@@ -266,13 +277,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               sx={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 1,
+                gap: { xs: 0.75, sm: 1 },
                 color: accentColorValue,
                 fontWeight: 600,
-                fontSize: '0.875rem',
+                // Mobile-first responsive font size
+                fontSize: { xs: '0.8125rem', sm: '0.875rem' },
                 textDecoration: 'none',
                 transition: 'all 150ms ease',
-                padding: '8px 0',
+                // Mobile: larger touch target
+                padding: { xs: '10px 0', sm: '8px 0' },
+                minHeight: { xs: '44px', sm: 'auto' }, // WCAG touch target
                 '&:hover': {
                   color: accentColor === 'blue' ? PRIMARY_500 : TEAL_500,
                   textDecoration: 'none',

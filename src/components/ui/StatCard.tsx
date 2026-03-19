@@ -11,7 +11,7 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -94,14 +94,18 @@ const StatCard: React.FC<StatCardProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
 
+  // Mobile-first: disable animations on mobile for better performance
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const count = useCountUp(
     number,
     animationDuration,
-    animated ? isInView : true,
+    animated && !isMobile ? isInView : true,
     formatNumber,
   );
 
-  const displayNumber = animated ? count : number;
+  const displayNumber = animated && !isMobile ? count : number;
   const formattedNumber = formatNumber
     ? formatNumber(displayNumber)
     : displayNumber.toLocaleString();
@@ -110,13 +114,14 @@ const StatCard: React.FC<StatCardProps> = ({
     <Box
       ref={ref}
       component={motion.div}
-      variants={animated ? statReveal : undefined}
-      initial={animated ? "hidden" : undefined}
-      animate={animated && isInView ? "visible" : undefined}
+      variants={animated && !isMobile ? statReveal : undefined}
+      initial={animated && !isMobile ? "hidden" : undefined}
+      animate={animated && !isMobile && isInView ? "visible" : undefined}
       sx={{
         backgroundColor: PRIMARY_500,
         borderRadius: RADIUS.md / 8, // Convert to MUI units
-        padding: { xs: 3, md: 4 },
+        // Mobile-first responsive padding - tight on mobile, comfortable on desktop
+        padding: { xs: 2.5, sm: 3, md: 4 },
         textAlign: "center",
         position: "relative",
         overflow: "hidden",
@@ -140,11 +145,12 @@ const StatCard: React.FC<StatCardProps> = ({
         <Box
           sx={{
             color: "rgba(255,255,255,0.9)",
-            mb: 1,
+            mb: { xs: 0.75, sm: 1 },
             position: "relative",
             zIndex: 1,
             "& svg": {
-              fontSize: { xs: "1.5rem", md: "1.75rem" },
+              // Mobile-first responsive icon sizing
+              fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
             },
           }}
         >
@@ -158,16 +164,17 @@ const StatCard: React.FC<StatCardProps> = ({
         component="div"
         sx={{
           color: WHITE,
-
+          // Mobile-first responsive sizing with fluid clamp
           fontSize: {
-            xs: "clamp(2rem, 6vw, 3rem)", // Mobile: 32px-48px
+            xs: "clamp(1.75rem, 8vw, 2.5rem)", // Mobile: 28px-40px (tighter for small screens)
+            sm: "clamp(2rem, 6vw, 2.75rem)", // Mobile landscape: 32px-44px
             md: "clamp(2.5rem, 4vw, 3.5rem)", // Desktop: 40px-56px
           },
           fontWeight: 800,
           lineHeight: 1,
           letterSpacing: "-0.04em",
-          fontFeatureSettings: '"tnum" 1', // Tabular numbers
-          mb: 1,
+          fontFeatureSettings: '"tnum" 1', // Tabular numbers for consistent width
+          mb: { xs: 0.75, sm: 1 },
           position: "relative",
           zIndex: 1,
         }}
@@ -183,13 +190,15 @@ const StatCard: React.FC<StatCardProps> = ({
         component="div"
         sx={{
           color: "rgba(255,255,255,0.9)",
-          fontSize: { xs: "0.8125rem", md: "0.875rem" }, // 13px → 14px
+          // Mobile-first responsive label sizing
+          fontSize: { xs: "0.75rem", sm: "0.8125rem", md: "0.875rem" }, // 12px → 13px → 14px
           fontWeight: 500,
-          lineHeight: 1.4,
+          lineHeight: { xs: 1.3, sm: 1.4 },
           letterSpacing: "0.01em",
           position: "relative",
           zIndex: 1,
-          maxWidth: "140px",
+          // Mobile: slightly wider max-width for better readability
+          maxWidth: { xs: "160px", sm: "150px", md: "140px" },
           mx: "auto",
         }}
       >

@@ -21,7 +21,7 @@
  * - Regulatory compliance through proper alt text and accessibility
  */
 
-import { Box, SxProps, alpha } from "@mui/material";
+import { Box, SxProps, alpha, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useCallback, useState } from "react";
 
@@ -35,13 +35,22 @@ import {
 } from "@/theme/tokens";
 import { getImage } from "@/utils/imageLoader";
 
+type RatioPreset = "16/9" | "4/3" | "3/4" | "1/1" | "hero";
+type ResponsiveRatio = {
+  xs?: RatioPreset;
+  sm?: RatioPreset;
+  md?: RatioPreset;
+  lg?: RatioPreset;
+  xl?: RatioPreset;
+};
+
 interface HumanisImageProps {
   /** Image source URL */
   src: string;
   /** Alt text for accessibility */
   alt: string;
-  /** Aspect ratio preset */
-  ratio?: "16/9" | "4/3" | "3/4" | "1/1" | "hero";
+  /** Aspect ratio preset or responsive ratio object */
+  ratio?: RatioPreset | ResponsiveRatio;
   /** Overlay preset for text readability */
   overlay?: "none" | "dark" | "navy" | "blue";
   /** Custom overlay opacity (0.0 - 1.0) */
@@ -110,6 +119,10 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
 
   const imgRef = React.useRef<HTMLImageElement>(null);
 
+  // Mobile-first responsive design: disable animations on mobile for performance
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   const handleLoad = useCallback(() => {
     setIsLoading(false);
     setImageLoaded(true);
@@ -127,21 +140,56 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
   const overlayColor = overlays[overlay];
   const finalOverlayOpacity = overlayOpacity ?? (overlay === "none" ? 0 : 1);
 
-  // Handle responsive border radius
+  // Handle responsive border radius - mobile-first approach
   const getBorderRadius = () => {
     if (typeof radius === "number") {
+      // Single radius for all breakpoints
       return `${radius}px`;
     } else if (radius && typeof radius === "object") {
-      // Convert responsive object to CSS
+      // Responsive radius object - mobile-first
       const responsiveRadius: any = {};
-      if (radius.xs) responsiveRadius.xs = `${radius.xs}px`;
-      if (radius.sm) responsiveRadius.sm = `${radius.sm}px`;
-      if (radius.md) responsiveRadius.md = `${radius.md}px`;
-      if (radius.lg) responsiveRadius.lg = `${radius.lg}px`;
-      if (radius.xl) responsiveRadius.xl = `${radius.xl}px`;
+
+      // Start with xs (mobile) as base, then layer up
+      if (radius.xs !== undefined) responsiveRadius.xs = `${radius.xs}px`;
+      if (radius.sm !== undefined) responsiveRadius.sm = `${radius.sm}px`;
+      if (radius.md !== undefined) responsiveRadius.md = `${radius.md}px`;
+      if (radius.lg !== undefined) responsiveRadius.lg = `${radius.lg}px`;
+      if (radius.xl !== undefined) responsiveRadius.xl = `${radius.xl}px`;
+
+      // If no xs specified, use 8px as mobile default
+      if (radius.xs === undefined && Object.keys(responsiveRadius).length > 0) {
+        responsiveRadius.xs = "8px";
+      }
+
       return responsiveRadius;
     }
-    return "8px"; // default
+    return "8px"; // mobile-first default
+  };
+
+  // Handle responsive aspect ratio - mobile-first approach
+  const getAspectRatio = () => {
+    if (typeof ratio === 'string') {
+      // Single ratio for all breakpoints
+      return ratios[ratio];
+    } else if (ratio && typeof ratio === 'object') {
+      // Responsive ratio object - mobile-first
+      const responsiveRatio: any = {};
+
+      // Start with xs (mobile) as base, then layer up
+      if (ratio.xs) responsiveRatio.xs = ratios[ratio.xs];
+      if (ratio.sm) responsiveRatio.sm = ratios[ratio.sm];
+      if (ratio.md) responsiveRatio.md = ratios[ratio.md];
+      if (ratio.lg) responsiveRatio.lg = ratios[ratio.lg];
+      if (ratio.xl) responsiveRatio.xl = ratios[ratio.xl];
+
+      // If no xs specified, use 4/3 as mobile default
+      if (!ratio.xs && Object.keys(responsiveRatio).length > 0) {
+        responsiveRatio.xs = ratios["4/3"];
+      }
+
+      return responsiveRatio;
+    }
+    return ratios["4/3"]; // mobile-first default
   };
 
   const MotionBox = animated ? motion.div : Box;
@@ -162,7 +210,8 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
         {
           position: "relative",
           width: "100%",
-          aspectRatio: ratios[ratio],
+          // bgcolor: "red",
+          aspectRatio: getAspectRatio(),
           borderRadius: getBorderRadius(),
           overflow: "hidden",
           backgroundColor: NEUTRAL_100,
@@ -179,7 +228,7 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
         // Spread user sx as separate array item to avoid type conflicts
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
-      {...(animated && {
+      {...(animated && !isMobile && {
         whileHover: onClick ? { scale: 1.02 } : undefined,
         transition: { duration: 0.2 },
       })}

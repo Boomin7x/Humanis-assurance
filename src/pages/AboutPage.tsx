@@ -114,7 +114,7 @@ const AboutPage: React.FC = () => {
           <HumanisImage
             src={getImage(images.office.exterior, "office")}
             alt="Immeuble Akwa où se trouve Humanis Assurances"
-            ratio="16/9"
+            // ratio="16/9"
             overlay="navy"
             overlayOpacity={0.8}
             radius={0}
