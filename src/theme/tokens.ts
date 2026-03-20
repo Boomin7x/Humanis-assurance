@@ -1,25 +1,27 @@
 // src/theme/tokens.ts
 /**
- * HUMANIS DESIGN SYSTEM - Design Tokens
+ * HUMANIS INSURANCE DESIGN SYSTEM - Design Tokens
+ * Professional insurance industry compliance standards
  * Single source of truth for all visual values
  *
- * Design language: "Refined Precision"
- * - Clean, authoritative, trustworthy
- * - Every visual decision earns its place
- * - Border radius: 6px standard, 8px cards/inputs, 12px modals, 100px pills
- * - Shadows: Only brand-blue tinted, ultra-subtle
- * - Gradients: Only in hero sections and dark backgrounds
+ * Insurance Industry Design Language: "Professional Authority"
+ * - Conservative, trustworthy, authoritative appearance
+ * - Trust-building through clean, professional aesthetics
+ * - NO SHADOWS - depth through borders and background contrast
+ * - Border radius: max 8px for insurance compliance
+ * - Minimal gradients - only for hero sections if needed
+ * - Every design decision builds user confidence in insurance services
  */
 
 // ─── PRIMARY PALETTE ────────────────────────────────────────────────────────
 
-/** Brand Navy/Blue - Insurance authority colors */
-export const BRAND_50 = "#F4F9FD";
-export const BRAND_100 = "#E8F3FA"; // hover surfaces, tinted backgrounds
-export const BRAND_300 = "#5BA3CC";
-export const BRAND_500 = "#1D6FA4"; // ← main brand blue (all CTAs, navbar, accents)
-export const BRAND_700 = "#1B3A5C"; // hover state
-export const BRAND_900 = "#0D1B2A"; // deep navy accent (hero overlays, headings)
+/** Brand Navy/Blue - Insurance authority and trust colors */
+export const BRAND_50 = "#F4F9FD"; // Subtle backgrounds, selected states
+export const BRAND_100 = "#E8F3FA"; // Card hover, form focus backgrounds
+export const BRAND_300 = "#5BA3CC"; // Border hover states
+export const BRAND_500 = "#1D6FA4"; // ← Primary CTAs, links, insurance brand authority
+export const BRAND_700 = "#1B3A5C"; // CTA hover, primary headings
+export const BRAND_900 = "#0D1B2A"; // Deep navy for maximum authority and trust
 
 /** Legacy PRIMARY tokens for backward compatibility */
 export const PRIMARY_50 = BRAND_50;
@@ -54,28 +56,29 @@ export const NAVY_OVERLAY = "rgba(17, 27, 46, 0.72)"; // hero overlay over photo
 
 // ─── NEUTRAL SCALE ──────────────────────────────────────────────────────────
 
-/** Neutral scale (insurance-appropriate cool greys) */
-export const NEUTRAL_50 = "#F9FAFB"; // ← page background
-export const NEUTRAL_100 = "#F3F4F6"; // alternating section background
-export const NEUTRAL_300 = "#D1D5DB"; // ← borders, dividers
-export const NEUTRAL_500 = "#6B7280"; // muted text, placeholders
-export const NEUTRAL_700 = "#374151"; // ← body copy
-export const NEUTRAL_900 = "#111827"; // headings
+/** Neutral scale - Professional insurance greys for trust and clarity */
+export const NEUTRAL_50 = "#F9FAFB"; // ← Main page background - clean, professional
+export const NEUTRAL_100 = "#F3F4F6"; // Section backgrounds, card surfaces
+export const NEUTRAL_200 = "#E5E7EB"; // Default borders, form outlines
+export const NEUTRAL_300 = "#D1D5DB"; // ← Dividers, inactive states
+export const NEUTRAL_400 = "#9CA3AF"; // Placeholder text, disabled states
+export const NEUTRAL_500 = "#6B7280"; // Supporting text, captions
+export const NEUTRAL_600 = "#4B5563"; // Secondary text
+export const NEUTRAL_700 = "#374151"; // ← Primary body text - excellent readability
+export const NEUTRAL_800 = "#1F2937"; // Strong text, important labels
+export const NEUTRAL_900 = "#111827"; // Headings, maximum emphasis
 
-/** Legacy neutral tokens for backward compatibility */
-export const NEUTRAL_200 = "#DDE3EC";
-export const NEUTRAL_400 = "#9AA7BC";
-export const NEUTRAL_600 = "#4A5568";
-export const NEUTRAL_800 = BRAND_900; // Link to brand navy for consistency
+// Remove legacy neutral tokens - now using insurance-standard neutral scale above
 
 export const WHITE = "#FFFFFF";
 
 // ─── SEMANTIC COLORS ────────────────────────────────────────────────────────
 
-export const SUCCESS = "#16A34A"; // Updated to match insurance design system
-export const WARNING = "#D97706"; // amber - regulatory notices
-export const ERROR = "#DC2626"; // form errors
-export const INFO = "#0284C7"; // Updated to match insurance design system
+// Professional semantic colors for insurance applications
+export const SUCCESS = "#16A34A"; // Policy approved, coverage active - trust building
+export const WARNING = "#D97706"; // Policy expiration warnings, regulatory notices
+export const ERROR = "#DC2626"; // Form validation errors, coverage issues
+export const INFO = "#0284C7"; // General information, help text - professional blue
 export const WHATSAPP = "#25D366"; // WhatsApp brand green
 export const WHATSAPP_DARK = "#1EBE5A"; // hover
 

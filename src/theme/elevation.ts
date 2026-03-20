@@ -1,100 +1,150 @@
 // src/theme/elevation.ts
 /**
- * HUMANIS ELEVATION SYSTEM
- * All shadows are tinted with brand blue - never grey or black
- * This is the signature of the design system
+ * HUMANIS INSURANCE ELEVATION SYSTEM
+ * Insurance industry compliance - NO SHADOWS
+ * Professional depth achieved through borders and background contrast
+ * Trust-building visual hierarchy for insurance platforms
  *
- * Format: 'x y blur spread rgba(color, opacity)'
- * Base color: PRIMARY_500 (#0D5EAF)
+ * Design Philosophy:
+ * - Shadows undermine insurance authority and professionalism
+ * - Depth created via border weight, color contrast, and whitespace
+ * - Clean, authoritative appearance builds user trust
  */
 
-// ─── ELEVATION SCALE ────────────────────────────────────────────────────────
+// ─── INSURANCE ELEVATION PATTERNS ──────────────────────────────────────────
 
 export const elevation = {
   none: "none",
 
-  /** Resting cards - barely visible blue tint */
-  xs: "0 1px 3px 0 rgba(13, 94, 175, 0.06)",
+  /** Resting cards - subtle border definition */
+  xs: "none", // No shadow - replaced with border in component
 
-  /** Hovered cards - subtle layered shadow */
-  sm: "0 2px 6px 0 rgba(13, 94, 175, 0.08), 0 1px 2px 0 rgba(13, 94, 175, 0.04)",
+  /** Hovered/focused cards - enhanced border */
+  sm: "none", // No shadow - replaced with border enhancement
 
-  /** Drawers, popovers - more pronounced depth */
-  md: "0 4px 12px 0 rgba(13, 94, 175, 0.10), 0 2px 4px 0 rgba(13, 94, 175, 0.06)",
+  /** Navigation, drawers - clean separation */
+  md: "none", // No shadow - replaced with background contrast
 
-  /** Modals - significant elevation */
-  lg: "0 8px 24px 0 rgba(13, 94, 175, 0.12), 0 4px 8px 0 rgba(13, 94, 175, 0.06)",
+  /** Modals, overlays - authority through contrast */
+  lg: "none", // No shadow - replaced with strong border
 
-  /** Floating elements - maximum elevation */
-  xl: "0 16px 40px 0 rgba(13, 94, 175, 0.14)",
+  /** Critical alerts - professional emphasis */
+  xl: "none", // No shadow - replaced with border + background
 } as const;
 
-// ─── BUTTON GLOW EFFECTS ───────────────────────────────────────────────────
+// ─── INSURANCE FOCUS INDICATORS ────────────────────────────────────────────
 
-export const buttonGlow = {
-  /** CTA button glow - used on primary button hover */
-  blue: "0 0 0 4px rgba(13, 94, 175, 0.18)",
+export const focusIndicator = {
+  /** Primary focus outline - professional accessibility */
+  primary: "0 0 0 3px rgba(29, 111, 164, 0.15)",
 
-  /** Secondary button glow - used on teal button hover */
-  teal: "0 0 0 4px rgba(26, 158, 117, 0.18)",
+  /** Success focus outline - trust indicator */
+  success: "0 0 0 3px rgba(22, 163, 74, 0.15)",
+
+  /** Error focus outline - clear error communication */
+  error: "0 0 0 3px rgba(220, 38, 38, 0.15)",
 } as const;
 
-// ─── INSET SHADOWS ──────────────────────────────────────────────────────────
+// ─── INSURANCE BORDER PATTERNS ─────────────────────────────────────────────
 
-export const insetShadow = {
-  /** Pressed states */
-  default: "inset 0 1px 3px 0 rgba(13, 94, 175, 0.10)",
+export const insuranceBorder = {
+  /** Default card border - professional definition */
+  default: "1px solid #D1D5DB", // NEUTRAL_300
+
+  /** Hover state - enhanced visibility */
+  hover: "1px solid #5BA3CC", // BRAND_300
+
+  /** Active/selected - authority indicator */
+  active: "2px solid #1D6FA4", // BRAND_500
+
+  /** Focus state - accessibility compliant */
+  focus: "1.5px solid #1D6FA4", // BRAND_500
+
+  /** Error state - clear communication */
+  error: "1px solid #DC2626", // ERROR
+
+  /** Success state - trust building */
+  success: "1px solid #16A34A", // SUCCESS
+
+  /** Modal/overlay - strong separation */
+  modal: "2px solid #E8F3FA", // BRAND_100
 } as const;
 
-// ─── MUI SHADOWS ARRAY ──────────────────────────────────────────────────────
+// ─── INSURANCE BACKGROUND PATTERNS ─────────────────────────────────────────
+
+export const insuranceBackground = {
+  /** Default card background */
+  default: "#FFFFFF",
+
+  /** Hover state - subtle enhancement */
+  hover: "#F4F9FD", // BRAND_50
+
+  /** Selected state - clear indication */
+  selected: "#E8F3FA", // BRAND_100
+
+  /** Active section - professional emphasis */
+  active: "#F9FAFB", // NEUTRAL_50
+
+  /** Modal backdrop - authority through contrast */
+  modal: "rgba(17, 24, 39, 0.75)", // Professional backdrop
+} as const;
+
+// ─── MUI SHADOWS ARRAY - INSURANCE COMPLIANT ───────────────────────────────
 
 /**
- * Override all 25 MUI shadow slots with our blue-tinted system
- * Maps elevation scale to MUI's shadow array
+ * Override all 25 MUI shadow slots to remove shadows entirely
+ * Insurance platforms require clean, professional appearance without shadows
+ * Depth achieved through border and background patterns instead
  */
 export const muiShadows = [
-  elevation.none, // shadows[0]
-  elevation.xs, // shadows[1]
-  elevation.sm, // shadows[2]
-  elevation.md, // shadows[3]
-  elevation.lg, // shadows[4]
-  elevation.xl, // shadows[5]
-  elevation.xl, // shadows[6] - cap at xl to prevent overuse
-  elevation.xl, // shadows[7]
-  elevation.xl, // shadows[8]
-  elevation.xl, // shadows[9]
-  elevation.xl, // shadows[10]
-  elevation.xl, // shadows[11]
-  elevation.xl, // shadows[12]
-  elevation.xl, // shadows[13]
-  elevation.xl, // shadows[14]
-  elevation.xl, // shadows[15]
-  elevation.xl, // shadows[16]
-  elevation.xl, // shadows[17]
-  elevation.xl, // shadows[18]
-  elevation.xl, // shadows[19]
-  elevation.xl, // shadows[20]
-  elevation.xl, // shadows[21]
-  elevation.xl, // shadows[22]
-  elevation.xl, // shadows[23]
-  elevation.xl, // shadows[24]
+  "none", // shadows[0] - default
+  "none", // shadows[1] - card resting
+  "none", // shadows[2] - card hover
+  "none", // shadows[3] - navigation
+  "none", // shadows[4] - modal
+  "none", // shadows[5] - tooltip
+  "none", // shadows[6+] - all disabled
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
+  "none",
 ] as const;
 
 // ─── TYPE DEFINITIONS ───────────────────────────────────────────────────────
 
 export type ElevationLevel = keyof typeof elevation;
-export type ButtonGlowVariant = keyof typeof buttonGlow;
+export type FocusIndicatorVariant = keyof typeof focusIndicator;
+export type InsuranceBorderVariant = keyof typeof insuranceBorder;
+export type InsuranceBackgroundVariant = keyof typeof insuranceBackground;
 
 // ─── UTILITY FUNCTIONS ──────────────────────────────────────────────────────
 
-/** Get elevation shadow by level with fallback */
-export function getElevation(level: ElevationLevel = "none"): string {
-  return elevation[level] ?? elevation.none;
+/** Get focus indicator by variant with fallback */
+export function getFocusIndicator(variant: FocusIndicatorVariant = "primary"): string {
+  return focusIndicator[variant] ?? focusIndicator.primary;
 }
 
-/** Get button glow by variant with fallback */
-export function getButtonGlow(variant: ButtonGlowVariant = "blue"): string {
-  return buttonGlow[variant] ?? buttonGlow.blue;
+/** Get insurance border by variant with fallback */
+export function getInsuranceBorder(variant: InsuranceBorderVariant = "default"): string {
+  return insuranceBorder[variant] ?? insuranceBorder.default;
+}
+
+/** Get insurance background by variant with fallback */
+export function getInsuranceBackground(variant: InsuranceBackgroundVariant = "default"): string {
+  return insuranceBackground[variant] ?? insuranceBackground.default;
 }
 
 /** Type guard for valid elevation levels */

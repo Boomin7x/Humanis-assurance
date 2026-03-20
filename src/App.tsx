@@ -13,6 +13,9 @@ const ComponentShowcase = lazy(
   () => import("./components/demo/ComponentShowcase"),
 );
 
+// Lazy load portal routes
+const PortalRoutes = lazy(() => import("./portal/PortalRoutes").then(m => ({ default: m.PortalRoutes })));
+
 function App() {
   return (
     <BrowserRouter>
@@ -67,6 +70,17 @@ function App() {
             }
           />
         </Route>
+
+        {/* Portal routes */}
+        <Route
+          path="portal/*"
+          element={
+            <Suspense fallback={<div>Loading Portal...</div>}>
+              <PortalRoutes />
+            </Suspense>
+          }
+        />
+
         <Route path="*" element={<Navigate to={"/"} replace />} />
       </Routes>
     </BrowserRouter>

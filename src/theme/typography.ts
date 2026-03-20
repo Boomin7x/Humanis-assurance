@@ -1,150 +1,158 @@
 // src/theme/typography.ts
 /**
- * HUMANIS TYPOGRAPHY SYSTEM
+ * HUMANIS INSURANCE TYPOGRAPHY SYSTEM
+ * Professional hierarchy for insurance industry trust and authority
  * Fluid type scale using clamp() - scales smoothly between 375px and 1280px viewports
  *
- * Font Strategy:
- * - ClashDisplay for headings (instead of Plus Jakarta Sans) - more distinctive, modern
- * - Satoshi for body text (instead of DM Sans) - excellent readability, professional
+ * Insurance Font Strategy:
+ * - Inter for headings - trusted, authoritative, widely used in finance/insurance
+ * - Inter for body text - excellent readability, professional consistency
+ * - DM Serif Display for hero headlines only - adds gravitas for insurance authority
  *
- * Formula: clamp(min, preferred_vw, max)
- * No media query breakpoints needed for font sizes
+ * Insurance Industry Requirements:
+ * - Conservative, trustworthy appearance
+ * - Clear hierarchy for policy information
+ * - Accessible contrast and sizing
+ * - Professional, not trendy or playful
  */
 
 // ─── FONT FAMILIES ──────────────────────────────────────────────────────────
 
 export const fontFamilies = {
-  /** Display and headings - ClashDisplay provides strong character and authority */
-  heading: "ClashDisplay, system-ui, -apple-system, sans-serif",
+  /** Display and headings - Inter provides trust and authority for insurance */
+  heading: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
 
-  /** Body text and UI - Satoshi offers superior readability and polish */
-  body: "Satoshi, system-ui, -apple-system, sans-serif",
+  /** Body text and UI - Inter ensures consistency and professionalism */
+  body: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
 
-  /** Monospace - for code and numeric data */
-  mono: 'ui-monospace, "SF Mono", "Monaco", "Inconsolata", "Fira Code", monospace',
+  /** Hero headlines only - DM Serif Display for insurance gravitas */
+  hero: '"DM Serif Display", Georgia, serif',
+
+  /** Monospace - for policy numbers, codes, and numeric data */
+  mono: '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace',
 } as const;
 
 // ─── FLUID TYPE SCALE ───────────────────────────────────────────────────────
 
 export const typeScale = {
-  /** Display - Hero H1 */
+  /** Display - Hero H1 with insurance authority */
   display: {
     fontSize: "clamp(2.25rem, 5vw + 0.5rem, 3.75rem)",
     lineHeight: 1.1,
-    letterSpacing: "-0.03em",
-    fontWeight: 800,
-    fontFamily: fontFamilies.heading,
+    letterSpacing: "-0.025em", // Less aggressive for professional feel
+    fontWeight: 700, // Strong but not excessive
+    fontFamily: fontFamilies.hero, // DM Serif for insurance gravitas
   },
 
-  /** Headline - Section H2 */
+  /** Headline - Section H2 with insurance professionalism */
   h2: {
     fontSize: "clamp(1.75rem, 3.5vw + 0.25rem, 2.75rem)",
-    lineHeight: 1.2,
-    letterSpacing: "-0.02em",
-    fontWeight: 700,
+    lineHeight: 1.25, // Better readability for insurance content
+    letterSpacing: "-0.015em", // Professional spacing
+    fontWeight: 600, // Authoritative but readable
     fontFamily: fontFamilies.heading,
   },
 
-  /** Title - Sub-section H3 */
+  /** Title - Sub-section H3 for policy sections */
   h3: {
     fontSize: "clamp(1.375rem, 2.5vw + 0.25rem, 2rem)",
-    lineHeight: 1.3,
-    letterSpacing: "-0.015em",
-    fontWeight: 700,
+    lineHeight: 1.35, // Insurance content readability
+    letterSpacing: "-0.01em",
+    fontWeight: 600, // Professional hierarchy
     fontFamily: fontFamilies.heading,
   },
 
-  /** Card heading H4 */
+  /** Card heading H4 for coverage cards */
   h4: {
     fontSize: "clamp(1.125rem, 1.5vw + 0.25rem, 1.5rem)",
-    lineHeight: 1.35,
-    letterSpacing: "-0.01em",
-    fontWeight: 600,
-    fontFamily: fontFamilies.heading,
-  },
-
-  /** Smaller heading H5 */
-  h5: {
-    fontSize: "1.125rem",
-    lineHeight: 1.4,
+    lineHeight: 1.4, // Insurance card readability
     letterSpacing: "-0.005em",
     fontWeight: 600,
     fontFamily: fontFamilies.heading,
   },
 
-  /** Smallest heading H6 */
-  h6: {
-    fontSize: "1rem",
+  /** Smaller heading H5 for form sections */
+  h5: {
+    fontSize: "1.125rem",
     lineHeight: 1.45,
     letterSpacing: "0",
     fontWeight: 600,
     fontFamily: fontFamilies.heading,
   },
 
-  /** Section overline - ALL CAPS label above headings */
-  overline: {
-    fontSize: "0.6875rem",
+  /** Smallest heading H6 for labels */
+  h6: {
+    fontSize: "1rem",
     lineHeight: 1.5,
-    letterSpacing: "0.12em",
+    letterSpacing: "0.01em", // Slight spacing for clarity
+    fontWeight: 500, // Less heavy for smaller headings
+    fontFamily: fontFamilies.heading,
+  },
+
+  /** Section overline - Professional labels for insurance sections */
+  overline: {
+    fontSize: "0.75rem", // Slightly larger for better readability
+    lineHeight: 1.5,
+    letterSpacing: "0.08em", // Professional but not excessive
     fontWeight: 600,
     textTransform: "uppercase" as const,
     fontFamily: fontFamilies.body,
   },
 
-  /** Primary body text */
+  /** Primary body text for policy content */
   body1: {
-    fontSize: "1rem", // 16px
-    lineHeight: 1.7,
+    fontSize: "1rem", // 16px - insurance standard
+    lineHeight: 1.7, // Excellent readability for insurance content
     letterSpacing: "0",
     fontWeight: 400,
     fontFamily: fontFamilies.body,
   },
 
-  /** Secondary body text */
+  /** Secondary body text for descriptions */
   body2: {
-    fontSize: "0.9375rem", // 15px
-    lineHeight: 1.65,
-    letterSpacing: "0",
+    fontSize: "0.875rem", // 14px - professional secondary text
+    lineHeight: 1.6,
+    letterSpacing: "0.01em", // Slight spacing for clarity
     fontWeight: 400,
     fontFamily: fontFamilies.body,
   },
 
-  /** UI labels and form elements */
+  /** UI labels and form elements - insurance clarity */
   label: {
-    fontSize: "0.875rem", // 14px
+    fontSize: "0.875rem", // 14px - clear form labels
     lineHeight: 1.5,
-    letterSpacing: "0.01em",
+    letterSpacing: "0.02em", // Better clarity for form labels
     fontWeight: 500,
     fontFamily: fontFamilies.body,
   },
 
-  /** Small text and captions */
+  /** Small text and captions for disclaimers */
   caption: {
-    fontSize: "0.8125rem", // 13px
-    lineHeight: 1.5,
+    fontSize: "0.75rem", // 12px - professional captions
+    lineHeight: 1.6,
     letterSpacing: "0.02em",
-    fontWeight: 500,
+    fontWeight: 400, // Lighter weight for captions
     fontFamily: fontFamilies.body,
   },
 
-  /** Button text */
+  /** Button text - professional insurance CTAs */
   button: {
-    fontSize: "0.9375rem", // 15px
+    fontSize: "0.875rem", // 14px - clean button text
     lineHeight: 1.5,
-    letterSpacing: "0.01em",
-    fontWeight: 600,
+    letterSpacing: "0.02em", // Professional spacing
+    fontWeight: 500, // Strong but not heavy
     textTransform: "none" as const,
     fontFamily: fontFamilies.body,
   },
 
-  /** Statistics numbers - large display numbers */
+  /** Statistics numbers - insurance metrics display */
   statNumber: {
     fontSize: "clamp(2rem, 4vw, 3.25rem)",
     lineHeight: 1.0,
-    letterSpacing: "-0.04em",
-    fontWeight: 800,
+    letterSpacing: "-0.02em", // Professional number spacing
+    fontWeight: 700, // Strong but trustworthy
     fontFamily: fontFamilies.heading,
-    fontFeatureSettings: '"tnum" 1', // tabular numbers for counter animation
+    fontFeatureSettings: '"tnum" 1', // tabular numbers for insurance data
   },
 } as const;
 

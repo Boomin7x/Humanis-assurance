@@ -5,22 +5,28 @@
  * Enterprise-grade design system implementation
  */
 
-import type { Components, ThemeOptions, Shadows } from "@mui/material/styles";
+import type { Components, Shadows, ThemeOptions } from "@mui/material/styles";
 import { alpha, createTheme } from "@mui/material/styles";
 
 // Import our design system
-import { buttonGlow, elevation, muiShadows } from "./elevation";
+import {
+  focusIndicator,
+  insuranceBackground,
+  insuranceBorder,
+  muiShadows,
+} from "./elevation";
+import { BREAKPOINTS, TOUCH_TARGETS } from "./responsive";
 import {
   ERROR,
   GLASS_NAVY_04,
   INFO,
   NAVY_800,
-  NEUTRAL_200,
+  NEUTRAL_300,
   NEUTRAL_400,
   NEUTRAL_50,
   NEUTRAL_500,
-  NEUTRAL_600,
-  PRIMARY_200,
+  NEUTRAL_700,
+  NEUTRAL_900,
   PRIMARY_50,
   PRIMARY_500,
   PRIMARY_700,
@@ -32,7 +38,6 @@ import {
   WHITE,
 } from "./tokens";
 import { muiTypographyConfig } from "./typography";
-import { TOUCH_TARGETS, BREAKPOINTS } from "./responsive";
 
 // ─── PALETTE CONFIGURATION ──────────────────────────────────────────────────
 
@@ -66,11 +71,11 @@ const paletteConfig = {
     paper: WHITE,
   },
   text: {
-    primary: NAVY_800,
-    secondary: NEUTRAL_600,
-    disabled: NEUTRAL_500,
+    primary: NEUTRAL_900, // Strong readable text for insurance content
+    secondary: NEUTRAL_700, // Professional secondary text
+    disabled: NEUTRAL_400, // Clear disabled state
   },
-  divider: NEUTRAL_200,
+  divider: NEUTRAL_300, // Professional divider visibility
   action: {
     hover: alpha(PRIMARY_500, 0.04),
     selected: alpha(PRIMARY_500, 0.08),
@@ -111,29 +116,43 @@ const componentOverrides: Components = {
       },
       contained: {
         boxShadow: "none",
+        border: "1px solid transparent",
         "&:hover": {
-          boxShadow: buttonGlow.blue,
+          boxShadow: "none",
+          transform: "translateY(-1px)",
+        },
+        "&:focus": {
+          boxShadow: focusIndicator.primary,
         },
       },
       containedPrimary: {
         backgroundColor: PRIMARY_500,
         "&:hover": {
           backgroundColor: PRIMARY_700,
-          boxShadow: buttonGlow.blue,
+          boxShadow: "none",
+        },
+        "&:focus": {
+          boxShadow: focusIndicator.primary,
         },
       },
       containedSecondary: {
         backgroundColor: TEAL_500,
         "&:hover": {
           backgroundColor: TEAL_700,
-          boxShadow: buttonGlow.teal,
+          boxShadow: "none",
+        },
+        "&:focus": {
+          boxShadow: focusIndicator.success,
         },
       },
       outlined: {
-        borderColor: NEUTRAL_200,
+        border: insuranceBorder.default,
         "&:hover": {
-          borderColor: PRIMARY_500,
+          border: insuranceBorder.hover,
           backgroundColor: PRIMARY_50,
+        },
+        "&:focus": {
+          boxShadow: focusIndicator.primary,
         },
       },
       text: {
@@ -144,75 +163,98 @@ const componentOverrides: Components = {
     },
   },
 
-  // ─── CARD COMPONENT ───────────────────────────────────────────────────────
+  // ─── CARD COMPONENT - INSURANCE PROFESSIONAL ─────────────────────────────
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: 8,
-        border: `1px solid ${NEUTRAL_200}`,
-        boxShadow: elevation.xs,
-        transition: "box-shadow 200ms, border-color 200ms, transform 200ms",
+        borderRadius: 6, // Insurance standard
+        border: insuranceBorder.default,
+        backgroundColor: insuranceBackground.default,
+        boxShadow: "none", // No shadows in insurance
+        transition:
+          "border-color 200ms, background-color 200ms, transform 100ms",
         "&:hover": {
-          boxShadow: elevation.sm,
-          borderColor: PRIMARY_200,
-          // Hover transform for desktop only
+          border: insuranceBorder.hover,
+          backgroundColor: insuranceBackground.hover,
+          boxShadow: "none", // Insurance compliance
+          // Subtle transform for interactivity
           "@media (min-width: 900px)": {
-            transform: "translateY(-2px)",
+            transform: "translateY(-1px)",
           },
+        },
+        // Selected state for coverage cards
+        "&[data-selected='true']": {
+          border: insuranceBorder.active,
+          backgroundColor: insuranceBackground.selected,
         },
       },
     },
   },
 
-  // ─── PAPER COMPONENT ──────────────────────────────────────────────────────
+  // ─── PAPER COMPONENT - INSURANCE CLEAN ───────────────────────────────────
   MuiPaper: {
     styleOverrides: {
       root: {
-        boxShadow: "none",
-        borderRadius: 8,
+        boxShadow: "none", // Insurance compliance
+        borderRadius: 6,
+        border: insuranceBorder.default,
+        backgroundColor: insuranceBackground.default,
       },
+      // All elevation levels use borders instead of shadows
       elevation1: {
-        boxShadow: elevation.xs,
+        boxShadow: "none",
+        border: insuranceBorder.default,
       },
       elevation2: {
-        boxShadow: elevation.sm,
+        boxShadow: "none",
+        border: insuranceBorder.hover,
       },
       elevation3: {
-        boxShadow: elevation.md,
+        boxShadow: "none",
+        border: insuranceBorder.active,
+        backgroundColor: insuranceBackground.active,
       },
       elevation4: {
-        boxShadow: elevation.lg,
+        boxShadow: "none",
+        border: insuranceBorder.modal,
+        backgroundColor: insuranceBackground.default,
       },
     },
   },
 
-  // ─── APP BAR COMPONENT ────────────────────────────────────────────────────
+  // ─── APP BAR COMPONENT - INSURANCE AUTHORITY ──────────────────────────────
   MuiAppBar: {
     styleOverrides: {
       root: {
-        boxShadow: "none",
-        backdropFilter: "blur(12px)",
+        boxShadow: "none", // Insurance compliance
+        backdropFilter: "none", // Clean, professional
+        borderBottom: `1px solid ${NEUTRAL_300}`,
+        backgroundColor: insuranceBackground.default,
+        color: NEUTRAL_900, // Professional text color
       },
     },
   },
 
-  // ─── DRAWER COMPONENT ─────────────────────────────────────────────────────
+  // ─── DRAWER COMPONENT - INSURANCE PROFESSIONAL ───────────────────────────
   MuiDrawer: {
     styleOverrides: {
       paper: {
-        borderRadius: "12px 0 0 12px",
-        boxShadow: elevation.lg,
+        borderRadius: "0", // Insurance standard - no radius on screen edges
+        boxShadow: "none", // Insurance compliance
+        borderRight: `1px solid ${NEUTRAL_300}`,
+        backgroundColor: insuranceBackground.default,
       },
     },
   },
 
-  // ─── MODAL COMPONENT ──────────────────────────────────────────────────────
+  // ─── MODAL COMPONENT - INSURANCE AUTHORITY ────────────────────────────────
   MuiModal: {
     styleOverrides: {
       root: {
         "& .MuiPaper-root": {
-          borderRadius: 12,
-          boxShadow: elevation.lg,
+          borderRadius: 8, // Max 8px for insurance compliance
+          boxShadow: "none", // Insurance standard
+          border: insuranceBorder.modal,
         },
       },
     },
@@ -226,17 +268,18 @@ const componentOverrides: Components = {
           borderRadius: 8,
           minHeight: TOUCH_TARGETS.buttonMinHeight,
           "& fieldset": {
-            borderColor: NEUTRAL_200,
+            borderColor: NEUTRAL_300, // Professional form borders
           },
           "&:hover fieldset": {
-            borderColor: NEUTRAL_400,
+            borderColor: NEUTRAL_500, // Clear hover indication
           },
           "&.Mui-focused fieldset": {
             borderColor: PRIMARY_500,
             borderWidth: "1.5px",
           },
           "&.Mui-focused": {
-            outline: `3px solid ${alpha(PRIMARY_500, 0.15)}`,
+            boxShadow: focusIndicator.primary,
+            outline: "none", // Use boxShadow for consistency
           },
         },
         "& .MuiInputLabel-root.Mui-focused": {
@@ -249,10 +292,10 @@ const componentOverrides: Components = {
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
-        borderRadius: 8,
+        borderRadius: 6, // Insurance standard
         minHeight: TOUCH_TARGETS.buttonMinHeight,
         "&.Mui-focused": {
-          boxShadow: "none", // Remove MUI's default blue glow
+          boxShadow: focusIndicator.primary, // Professional focus indicator
         },
         "& input": {
           padding: "16.5px 14px",
@@ -277,17 +320,18 @@ const componentOverrides: Components = {
   MuiDivider: {
     styleOverrides: {
       root: {
-        borderColor: NEUTRAL_200,
+        borderColor: NEUTRAL_300, // Professional dividers
       },
     },
   },
 
-  // ─── TOOLTIP COMPONENT ────────────────────────────────────────────────────
+  // ─── TOOLTIP COMPONENT - INSURANCE CLEAN ─────────────────────────────────
   MuiTooltip: {
     styleOverrides: {
       tooltip: {
-        borderRadius: 6,
-        boxShadow: elevation.md,
+        borderRadius: 4, // Minimal radius for tooltips
+        boxShadow: "none", // Insurance compliance
+        border: `1px solid ${NEUTRAL_300}`,
         backgroundColor: NAVY_800,
         fontSize: "0.8125rem",
       },
@@ -325,7 +369,7 @@ const componentOverrides: Components = {
     styleOverrides: {
       root: {
         boxShadow: "none",
-        border: `1px solid ${NEUTRAL_200}`,
+        border: `1px solid ${NEUTRAL_300}`, // Professional accordion borders
         borderRadius: 8,
         "&:before": {
           display: "none",
@@ -388,12 +432,12 @@ const componentOverrides: Components = {
     },
   },
 
-  // ─── BACKDROP COMPONENT ───────────────────────────────────────────────────
+  // ─── BACKDROP COMPONENT - INSURANCE PROFESSIONAL ─────────────────────────
   MuiBackdrop: {
     styleOverrides: {
       root: {
-        backgroundColor: "rgba(17, 27, 46, 0.8)",
-        backdropFilter: "blur(4px)",
+        backgroundColor: insuranceBackground.modal,
+        backdropFilter: "none", // Clean, professional
       },
     },
   },
@@ -407,10 +451,10 @@ const themeOptions: ThemeOptions = {
   typography: muiTypographyConfig,
 
   shape: {
-    borderRadius: 6, // Default border radius
+    borderRadius: 6, // Insurance standard - never exceed 8px
   },
 
-  shadows: muiShadows as Shadows,
+  shadows: [...muiShadows] as unknown as Shadows,
 
   transitions: {
     easing: {
