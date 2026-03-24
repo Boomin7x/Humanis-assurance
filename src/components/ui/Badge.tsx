@@ -3,7 +3,7 @@
  * HUMANIS BADGE COMPONENT
  *
  * Features:
- * - Multiple variants: blue (info), teal (feature), navy (category)
+ * - Multiple variants: blue (info), teal (feature), navy (category), green (success), neutral
  * - Consistent styling with design system
  * - Size variants: small, medium, large
  * - Optional icon support
@@ -21,6 +21,7 @@ import {
   WHITE,
   NEUTRAL_100,
   NEUTRAL_600,
+  SUCCESS,
 } from "@/theme/tokens";
 import { RADIUS } from "@/constants/layout";
 
@@ -29,7 +30,7 @@ interface BadgeProps extends Omit<
   "color" | "variant" | "children" | "icon" | "size"
 > {
   /** Visual variant */
-  variant?: "blue" | "teal" | "navy" | "neutral";
+  variant?: "blue" | "teal" | "navy" | "neutral" | "green";
   /** Size variant */
   size?: "small" | "medium" | "large";
   /** Optional Iconify icon */
@@ -67,6 +68,11 @@ const Badge: React.FC<BadgeProps> = ({
       backgroundColor: NEUTRAL_100,
       color: NEUTRAL_600,
       borderColor: "transparent",
+    },
+    green: {
+      backgroundColor: `${SUCCESS}12`,
+      color: SUCCESS,
+      borderColor: `${SUCCESS}20`,
     },
   };
 
@@ -136,7 +142,7 @@ const Badge: React.FC<BadgeProps> = ({
         ...currentVariantStyles,
         ...currentSizeStyles,
         borderRadius: RADIUS.pill / 8, // Full pill shape
-        border: `1px solid ${currentVariantStyles.borderColor}`,
+        border: `1px solid ${currentVariantStyles?.borderColor}`,
         fontFamily: "DM Sans, sans-serif",
         letterSpacing: "0.01em",
         textTransform: "none",

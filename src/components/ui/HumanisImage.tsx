@@ -121,7 +121,7 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
 
   // Mobile-first responsive design: disable animations on mobile for performance
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleLoad = useCallback(() => {
     setIsLoading(false);
@@ -168,10 +168,10 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
 
   // Handle responsive aspect ratio - mobile-first approach
   const getAspectRatio = () => {
-    if (typeof ratio === 'string') {
+    if (typeof ratio === "string") {
       // Single ratio for all breakpoints
       return ratios[ratio];
-    } else if (ratio && typeof ratio === 'object') {
+    } else if (ratio && typeof ratio === "object") {
       // Responsive ratio object - mobile-first
       const responsiveRatio: any = {};
 
@@ -211,11 +211,13 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
           position: "relative",
           width: "100%",
           // bgcolor: "red",
+          display: "block",
           aspectRatio: getAspectRatio(),
           borderRadius: getBorderRadius(),
           overflow: "hidden",
           backgroundColor: NEUTRAL_100,
           cursor: onClick ? "pointer" : "default",
+          minHeight: { xs: "200px", md: "auto" },
           // Grayscale hover effect for partner logos
           ...(grayscale && {
             filter: "grayscale(100%)",
@@ -228,10 +230,11 @@ const HumanisImage: React.FC<HumanisImageProps> = ({
         // Spread user sx as separate array item to avoid type conflicts
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
-      {...(animated && !isMobile && {
-        whileHover: onClick ? { scale: 1.02 } : undefined,
-        transition: { duration: 0.2 },
-      })}
+      {...(animated &&
+        !isMobile && {
+          whileHover: onClick ? { scale: 1.02 } : undefined,
+          transition: { duration: 0.2 },
+        })}
     >
       {/* Loading State - Insurance Branded Shimmer */}
       {isLoading && (
