@@ -108,7 +108,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
   // Mobile-first: disable animations on mobile for better performance
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   // Render star rating
   const renderStars = (): React.ReactNode => {
@@ -132,11 +132,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
   return (
     <MotionCard
-      {...(animated && !isMobile && {
-        whileHover: { y: -4, transition: { duration: 0.2, ease: "easeOut" } },
-        initial: { y: 0 },
-        animate: { y: 0 },
-      })}
+      {...(animated &&
+        !isMobile && {
+          whileHover: { y: -4, transition: { duration: 0.2, ease: "easeOut" } },
+          initial: { y: 0 },
+          animate: { y: 0 },
+        })}
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
     >
       <Card
         sx={{
@@ -162,7 +167,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           sx={{
             // Mobile-first responsive padding
             p: { xs: 2.5, sm: 3, md: 4 },
-            pb: { xs: '20px !important', sm: '24px !important', md: '32px !important' },
+            pb: {
+              xs: "20px !important",
+              sm: "24px !important",
+              md: "32px !important",
+            },
             display: "flex",
             flexDirection: "column",
             height: "100%",
@@ -261,7 +270,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   color: WHITE,
                   fontWeight: 600,
                   fontSize: { xs: "0.875rem", sm: "1rem" },
-                  border: { xs: `2px solid ${WHITE}`, sm: `3px solid ${WHITE}` },
+                  border: {
+                    xs: `2px solid ${WHITE}`,
+                    sm: `3px solid ${WHITE}`,
+                  },
                   outline: `2px solid ${typeConfig.color}`,
                   boxShadow: "none", // NO SHADOWS - depth through border layering
                 }}
@@ -284,11 +296,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  border: { xs: `1.5px solid ${WHITE}`, sm: `2px solid ${WHITE}` },
+                  border: {
+                    xs: `1.5px solid ${WHITE}`,
+                    sm: `2px solid ${WHITE}`,
+                  },
                   boxShadow: "none", // NO SHADOWS - depth through border contrast
                 }}
               >
-                <typeConfig.icon sx={{ fontSize: { xs: "0.625rem", sm: "0.75rem" } }} />
+                <typeConfig.icon
+                  sx={{ fontSize: { xs: "0.625rem", sm: "0.75rem" } }}
+                />
               </Box>
             </Box>
 
@@ -326,7 +343,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
               </Typography>
 
               {/* Sector & Client Type Badges */}
-              <Stack direction="row" spacing={{ xs: 0.75, sm: 1 }} flexWrap="wrap" useFlexGap>
+              <Stack
+                direction="row"
+                spacing={{ xs: 0.75, sm: 1 }}
+                flexWrap="wrap"
+                useFlexGap
+              >
                 <Chip
                   label={sector}
                   size="small"
@@ -349,7 +371,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   label={typeConfig.label}
                   size="small"
                   icon={
-                    <typeConfig.icon sx={{ fontSize: { xs: "0.625rem !important", sm: "0.75rem !important" } }} />
+                    <typeConfig.icon
+                      sx={{
+                        fontSize: {
+                          xs: "0.625rem !important",
+                          sm: "0.75rem !important",
+                        },
+                      }}
+                    />
                   }
                   sx={{
                     backgroundColor: typeConfig.bgColor,
