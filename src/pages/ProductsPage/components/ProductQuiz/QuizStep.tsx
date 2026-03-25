@@ -47,6 +47,7 @@ export const QuizStep: React.FC<QuizStepProps> = ({
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     keyboardNavigation.handleQuizNavigation(
       event.nativeEvent,
+
       onSelect,
     );
   };
