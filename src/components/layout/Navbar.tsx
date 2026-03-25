@@ -418,6 +418,41 @@ const Navbar: React.FC = () => {
       >
         <Stack spacing={{ xs: 2, sm: 3 }}>
           <LanguageToggle variant="mobile" />
+          {/* Portal Access Button - Mobile */}
+          <Button
+            component={Link}
+            to="/portal"
+            variant="outlined"
+            onClick={handleDrawerClose}
+            sx={{
+              fontFamily: "'Satoshi', 'Inter', sans-serif",
+              color: WHITE,
+              borderColor: "rgba(255, 255, 255, 0.3)",
+              textTransform: "none",
+              borderRadius: "6px",
+              px: 3,
+              py: 1.75,
+              ...TYPOGRAPHY_MOBILE.body1,
+              fontWeight: 500,
+              width: "100%",
+              minHeight: TOUCH_TARGETS.buttonComfortable,
+              "&:hover": {
+                borderColor: WHITE,
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                color: WHITE,
+              },
+              "&:active": {
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                transform: "scale(0.98)",
+              },
+              "&:focus-visible": {
+                outline: `2px solid ${TEAL_500}`,
+                outlineOffset: 2,
+              },
+            }}
+          >
+            Espace Client
+          </Button>
           <CTAButton isMobile={true} onButtonClick={handleDrawerClose} />
         </Stack>
       </Box>
@@ -468,7 +503,36 @@ const Navbar: React.FC = () => {
               <Box sx={{ flexShrink: 0 }}>
                 <Stack direction="row" spacing={2} alignItems="center">
                   <LanguageToggle />
-                  <CTAButton />
+                  {/* Portal Access Button */}
+                  <Button
+                    component={Link}
+                    to="/portal"
+                    variant="outlined"
+                    sx={{
+                      fontFamily: "'Satoshi', 'Inter', sans-serif",
+                      color: WHITE,
+                      borderColor: "rgba(255, 255, 255, 0.3)",
+                      textTransform: "none",
+                      borderRadius: "6px",
+                      px: 2.5,
+                      py: 1.25,
+                      ...TYPOGRAPHY_MOBILE.body2,
+                      fontWeight: 500,
+                      minHeight: TOUCH_TARGETS.buttonComfortable,
+                      "&:hover": {
+                        borderColor: WHITE,
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        color: WHITE,
+                      },
+                      "&:focus-visible": {
+                        outline: `2px solid ${TEAL_500}`,
+                        outlineOffset: 2,
+                      },
+                    }}
+                  >
+                    Espace Client
+                  </Button>
+                  {/* <CTAButton /> */}
                 </Stack>
               </Box>
             </>
@@ -509,12 +573,14 @@ const Navbar: React.FC = () => {
         ModalProps={{
           keepMounted: true, // Better open performance on mobile
         }}
-        PaperProps={{
-          sx: {
-            backgroundColor: "transparent",
-            boxShadow: "none",
-            width: { xs: "100vw", sm: 320 }, // Full width on small mobile, fixed on larger
-            maxWidth: "100vw",
+        slotProps={{
+          paper: {
+            sx: {
+              backgroundColor: "transparent",
+              boxShadow: "none",
+              width: { xs: "100vw", sm: 320 }, // Full width on small mobile, fixed on larger
+              maxWidth: "100vw",
+            },
           },
         }}
         sx={{

@@ -1,30 +1,36 @@
 // src/portal/shared/mock/mockAuthService.ts
 // Mock authentication service for demo mode
 
-import { mockDelay } from './mockDelay';
-import type { AuthSession, LoginCredentials, AuthUser, UserRole, AuthError } from '../types';
+import { mockDelay } from "./mockDelay";
+import type {
+  AuthSession,
+  LoginCredentials,
+  AuthUser,
+  UserRole,
+  AuthError,
+} from "../types";
 
 // Storage key for mock auth data
-const AUTH_STORAGE_KEY = 'humanis_portal_auth';
+const AUTH_STORAGE_KEY = "humanis_portal_auth";
 
 // Demo credentials
 const DEMO_USERS: Record<string, { password: string; user: AuthUser }> = {
-  'agent@demo.com': {
-    password: 'demo1234',
+  "agent@demo.com": {
+    password: "demo1234",
     user: {
-      id: 'agent-1',
-      email: 'agent@demo.com',
-      name: 'Marie Dupont',
-      role: 'agent' as UserRole,
+      id: "agent-1",
+      email: "agent@demo.com",
+      name: "Marie Dupont",
+      role: "agent" as UserRole,
     },
   },
-  'customer@demo.com': {
-    password: 'demo1234',
+  "customer@demo.com": {
+    password: "demo1234",
     user: {
-      id: 'customer-1',
-      email: 'customer@demo.com',
-      name: 'Jean Martin',
-      role: 'customer' as UserRole,
+      id: "customer-1",
+      email: "customer@demo.com",
+      name: "Jean Martin",
+      role: "customer" as UserRole,
     },
   },
 };
@@ -48,19 +54,24 @@ class MockAuthService {
     // Check if user exists
     const userRecord = DEMO_USERS[email.toLowerCase()];
     if (!userRecord) {
-      throw new Error('User not found') as AuthError & { code: 'USER_NOT_FOUND' };
+      throw new Error("User not found") as AuthError & {
+        code: "USER_NOT_FOUND";
+      };
     }
 
     // Validate password
     if (userRecord.password !== password) {
-      throw new Error('Invalid credentials') as AuthError & { code: 'INVALID_CREDENTIALS' };
+      throw new Error("Invalid credentials") as AuthError & {
+        code: "INVALID_CREDENTIALS";
+      };
     }
 
     // Create session
     const session: AuthSession = {
       user: userRecord.user,
-      token: 'mock-token',
+      token: "mock-token",
       role: userRecord.user.role,
+      isAuthenticated: true,
     };
 
     // Store in localStorage
@@ -89,7 +100,7 @@ class MockAuthService {
       const session = JSON.parse(stored) as AuthSession;
 
       // Validate session structure
-      if (!session.user || !session.token || !session.role) {
+      if (!session.user || !session.token || !session.role || typeof session.isAuthenticated !== 'boolean') {
         localStorage.removeItem(AUTH_STORAGE_KEY);
         return null;
       }
@@ -97,6 +108,7 @@ class MockAuthService {
       return session;
     } catch (error) {
       // Clear corrupted data
+      console.log({ error });
       localStorage.removeItem(AUTH_STORAGE_KEY);
       return null;
     }
@@ -131,6 +143,6 @@ export const mockAuthService = new MockAuthService();
 
 // Export demo credentials for UI hints
 export const DEMO_CREDENTIALS = {
-  agent: { email: 'agent@demo.com', password: 'demo1234' },
-  customer: { email: 'customer@demo.com', password: 'demo1234' },
+  agent: { email: "agent@demo.com", password: "demo1234" },
+  customer: { email: "customer@demo.com", password: "demo1234" },
 };
