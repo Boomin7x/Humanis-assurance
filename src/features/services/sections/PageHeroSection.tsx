@@ -25,6 +25,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { motion, useReducedMotion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { HumanisImage } from "@/components/ui";
 import { images } from "@/utils/imageLoader";
@@ -68,6 +69,7 @@ const HERO_CONFIG = {
  */
 export const PageHeroSection: React.FC<SectionProps> = React.memo(
   ({ className }) => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const prefersReducedMotion = useReducedMotion();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -150,14 +152,14 @@ export const PageHeroSection: React.FC<SectionProps> = React.memo(
                   aria-label="Retour à l'accueil"
                 >
                   <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  Accueil
+                  {t('common.home')}
                 </Link>
                 <Typography
                   color="white"
                   sx={{ fontWeight: 500 }}
                   aria-current="page"
                 >
-                  Services
+                  {t('pages.services.hero.breadcrumb')}
                 </Typography>
               </Breadcrumbs>
 
@@ -174,7 +176,7 @@ export const PageHeroSection: React.FC<SectionProps> = React.memo(
                   letterSpacing: "-0.02em",
                 }}
               >
-                Nos Services
+                {t('pages.services.hero.title')}
               </Typography>
 
               {/* Subtitle */}
@@ -190,7 +192,7 @@ export const PageHeroSection: React.FC<SectionProps> = React.memo(
                   maxWidth: "600px",
                 }}
               >
-                Courtage · Risk Management · Programmes Internationaux
+                {t('pages.services.hero.subtitle')}
               </Typography>
             </Stack>
           </motion.div>

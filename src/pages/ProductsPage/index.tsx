@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper } from "@/components/ui";
 import { useProductFilters } from "./hooks/useProductFilters";
@@ -12,6 +13,7 @@ import { ProductCTA } from "./components/ProductCTA";
 import { ANIMATION_VARIANTS } from "./constants/animations";
 
 const ProductsPage: React.FC = () => {
+  const { t } = useTranslation();
   const {
     activeTab,
     searchQuery,
@@ -51,8 +53,8 @@ const ProductsPage: React.FC = () => {
       {(activeTab === "all" || activeTab === "iardt") && (
         <ProductGrid
           sectionId="iardt"
-          overline="IARDT"
-          title="Incendie, Accidents, Risques Divers & Transport"
+          overline={t('common.iardt')}
+          title={t('products.iardt.title')}
           products={iardtFilteredProducts}
           background="white"
         />
@@ -62,8 +64,8 @@ const ProductsPage: React.FC = () => {
       {(activeTab === "all" || activeTab === "vie") && (
         <ProductGrid
           sectionId="vie"
-          overline="Assurance Vie"
-          title="Prévoyance & Épargne"
+          overline={t('common.lifeInsurance')}
+          title={t('products.vie.title')}
           products={vieFilteredProducts}
           background="alt"
         />

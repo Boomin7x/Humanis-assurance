@@ -16,6 +16,7 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import GroupsIcon from "@mui/icons-material/Groups";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { HumanisImage } from "@/components/ui";
 import { images } from "@/utils/imageLoader";
@@ -31,6 +32,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
   activeTab,
   onTabChange,
 }) => {
+  const { t } = useTranslation();
   return (
     <Box
       component="section"
@@ -84,9 +86,9 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 }}
               >
                 <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Accueil
+                {t('common.home')}
               </Link>
-              <Typography color="white">Produits</Typography>
+              <Typography color="white">{t('products.hero.breadcrumb')}</Typography>
             </Breadcrumbs>
 
             {/* H1 Title */}
@@ -100,7 +102,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 textAlign: "center",
               }}
             >
-              Nos Produits
+              {t('products.hero.title')}
             </Typography>
 
             {/* Subtitle */}
@@ -114,7 +116,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 maxWidth: "600px",
               }}
             >
-              IARDT & Assurance Vie — des solutions pour chaque profil
+              {t('products.hero.subtitle')}
             </Typography>
 
             {/* Trust Indicators */}
@@ -141,28 +143,28 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 <Stack direction="row" spacing={0.5} alignItems="center">
                   <SecurityIcon sx={{ fontSize: 18, color: "white" }} />
                   <Typography variant="body2" color="white" fontWeight={500}>
-                    Agréé ACPR
+                    {t('products.hero.trust.accredited')}
                   </Typography>
                 </Stack>
 
                 <Stack direction="row" spacing={0.5} alignItems="center">
                   <VerifiedIcon sx={{ fontSize: 18, color: "#25D366" }} />
                   <Typography variant="body2" color="white" fontWeight={500}>
-                    Courtier certifié
+                    {t('products.hero.trust.certified')}
                   </Typography>
                 </Stack>
 
                 <Stack direction="row" spacing={0.5} alignItems="center">
                   <GroupsIcon sx={{ fontSize: 18, color: "white" }} />
                   <Typography variant="body2" color="white" fontWeight={500}>
-                    50,000+ clients
+                    {t('products.hero.trust.clients')}
                   </Typography>
                 </Stack>
 
                 <Stack direction="row" spacing={0.5} alignItems="center">
                   <TrendingUpIcon sx={{ fontSize: 18, color: "white" }} />
                   <Typography variant="body2" color="white" fontWeight={500}>
-                    15+ ans d'expertise
+                    {t('products.hero.trust.experience')}
                   </Typography>
                 </Stack>
               </Stack>
@@ -177,7 +179,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
               gap={1}
             >
               <Chip
-                label="ORIAS N° 12345678"
+                label={t('products.hero.badges.orias')}
                 size="small"
                 sx={{
                   backgroundColor: "rgba(255, 255, 255, 0.15)",
@@ -188,7 +190,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 }}
               />
               <Chip
-                label="Membre FFA"
+                label={t('products.hero.badges.ffa')}
                 size="small"
                 sx={{
                   backgroundColor: "rgba(255, 255, 255, 0.15)",
@@ -199,7 +201,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 }}
               />
               <Chip
-                label="Certifié ISO 27001"
+                label={t('products.hero.badges.iso')}
                 size="small"
                 sx={{
                   backgroundColor: "rgba(255, 255, 255, 0.15)",
@@ -240,9 +242,9 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
                 },
               }}
             >
-              <Tab label="Tous les produits" value="all" />
-              <Tab label="IARDT" value="iardt" />
-              <Tab label="Assurance Vie" value="vie" />
+              <Tab label={t('products.hero.tabs.all')} value="all" />
+              <Tab label={t('products.hero.tabs.iardt')} value="iardt" />
+              <Tab label={t('products.hero.tabs.vie')} value="vie" />
             </Tabs>
           </Stack>
         </motion.div>

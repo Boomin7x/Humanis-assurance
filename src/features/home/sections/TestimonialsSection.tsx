@@ -1,6 +1,7 @@
 // src/features/home/sections/TestimonialsSection.tsx
 import { Container, Grid } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionHeader, SectionWrapper, TestimonialCard } from "@/components/ui";
 import { GRID_MOBILE } from "@/theme/responsive";
@@ -9,10 +10,10 @@ import { GRID_MOBILE } from "@/theme/responsive";
  * Testimonial data structure for homepage
  */
 interface TestimonialData {
-  readonly quote: string;
-  readonly author: string;
-  readonly company: string;
-  readonly sector: string;
+  readonly quoteKey: string;
+  readonly authorKey: string;
+  readonly companyKey: string;
+  readonly sectorKey: string;
   readonly rating: number;
 }
 
@@ -21,27 +22,24 @@ interface TestimonialData {
  */
 const TESTIMONIALS_DATA: readonly TestimonialData[] = [
   {
-    quote:
-      "Humanis nous accompagne depuis 5 ans. Leur expertise en risk management nous a permis d'optimiser nos coûts d'assurance de 25% tout en améliorant notre couverture.",
-    author: "Marie Ngono",
-    company: "Cameroun Industries",
-    sector: "Secteur Manufacturier",
+    quoteKey: "testimonials.manufacturing.quote",
+    authorKey: "testimonials.manufacturing.author",
+    companyKey: "testimonials.manufacturing.company",
+    sectorKey: "testimonials.manufacturing.sector",
     rating: 5,
   },
   {
-    quote:
-      "Service exceptionnel et réactivité remarquable. L'équipe de Humanis comprend parfaitement les enjeux des PME camerounaises.",
-    author: "Paul Mendomo",
-    company: "Transport Express",
-    sector: "Secteur Transport",
+    quoteKey: "testimonials.transport.quote",
+    authorKey: "testimonials.transport.author",
+    companyKey: "testimonials.transport.company",
+    sectorKey: "testimonials.transport.sector",
     rating: 5,
   },
   {
-    quote:
-      "Grâce à Humanis, nous avons mis en place une couverture internationale complète pour nos expatriés. Un partenaire de confiance.",
-    author: "Jean-Claude Eyoum",
-    company: "Agro-Business",
-    sector: "Secteur Agricole",
+    quoteKey: "testimonials.agriculture.quote",
+    authorKey: "testimonials.agriculture.author",
+    companyKey: "testimonials.agriculture.company",
+    sectorKey: "testimonials.agriculture.sector",
     rating: 5,
   },
 ] as const;
@@ -55,6 +53,8 @@ const TESTIMONIALS_DATA: readonly TestimonialData[] = [
  * - 5-star ratings for credibility
  */
 export const TestimonialsSection: React.FC = React.memo(() => {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper
       background="alt"
@@ -64,8 +64,8 @@ export const TestimonialsSection: React.FC = React.memo(() => {
     >
       <Container maxWidth={false} sx={{ maxWidth: 1440 }}>
         <SectionHeader
-          overline="Témoignages"
-          title="Ce que disent nos clients"
+          overline={t("sections.testimonials.overline")}
+          title={t("sections.testimonials.title")}
           align="center"
           animationDelay={0.1}
         />
@@ -78,10 +78,10 @@ export const TestimonialsSection: React.FC = React.memo(() => {
           {TESTIMONIALS_DATA.map((testimonial, index) => (
             <Grid key={index} size={GRID_MOBILE.thirdOnDesktop}>
               <TestimonialCard
-                quote={testimonial.quote}
-                author={testimonial.author}
-                company={testimonial.company}
-                sector={testimonial.sector}
+                quote={t(testimonial.quoteKey)}
+                author={t(testimonial.authorKey)}
+                company={t(testimonial.companyKey)}
+                sector={t(testimonial.sectorKey)}
                 rating={testimonial.rating}
                 animated
               />

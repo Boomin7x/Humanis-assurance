@@ -1,6 +1,7 @@
 // src/features/home/sections/PartnersSection.tsx
 import { Box, Container } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { PartnerLogos, SectionHeader, SectionWrapper } from "@/components/ui";
 
@@ -13,6 +14,8 @@ import { PartnerLogos, SectionHeader, SectionWrapper } from "@/components/ui";
  * Shows 20+ major insurers partnered with Humanis
  */
 export const PartnersSection: React.FC = React.memo(() => {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper
       background="white"
@@ -22,9 +25,9 @@ export const PartnersSection: React.FC = React.memo(() => {
     >
       <Container maxWidth={false} sx={{ maxWidth: 1440 }}>
         <SectionHeader
-          overline="Nos Partenaires de Confiance"
-          title="Partenaires"
-          subtitle="Ils nous font confiance pour protéger leurs intérêts et ceux de leurs clients."
+          overline={t("sections.partners.overline")}
+          title={t("sections.partners.title")}
+          subtitle={t("sections.partners.subtitle")}
           align="center"
           animationDelay={0.2}
         />

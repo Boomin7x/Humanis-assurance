@@ -24,6 +24,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { motion, useReducedMotion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper, TrustBadge } from "@/components/ui";
 import { animationPresets } from "@/theme/motion";
@@ -190,6 +191,7 @@ const HERO_RESPONSIVE_CONFIG = {
  */
 export const PageHeroSection: React.FC<PageHeroSectionProps> = React.memo(
   ({ className }) => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const prefersReducedMotion = useReducedMotion();
 
@@ -310,7 +312,7 @@ export const PageHeroSection: React.FC<PageHeroSectionProps> = React.memo(
                     lineHeight: 1.2,
                   }}
                 >
-                  Courtier Agréé CIMA depuis 2009
+                  {t('pages.about.hero.badge')}
                 </Typography>
               </Box>
 
@@ -335,7 +337,7 @@ export const PageHeroSection: React.FC<PageHeroSectionProps> = React.memo(
                 }}
                 data-testid="page-hero-title"
               >
-                Leader du courtage d'assurance au Cameroun
+                {t('pages.about.hero.title')}
               </Typography>
 
               {/* Subtitle */}
@@ -359,9 +361,7 @@ export const PageHeroSection: React.FC<PageHeroSectionProps> = React.memo(
                 }}
                 data-testid="page-hero-subtitle"
               >
-                Expertise reconnue en courtage professionnel, risk management,
-                et conformité réglementaire CIMA. Votre partenaire de confiance
-                pour une protection optimale.
+                {t('pages.about.hero.subtitle')}
               </Typography>
 
               {/* Trust Badges */}

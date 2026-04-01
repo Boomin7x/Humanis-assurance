@@ -6,14 +6,14 @@ import { ROUTES } from '@/shared/constants/routes';
  */
 export interface ProductCategory {
   readonly id: 'iardt' | 'vie';
-  readonly badgeText: string;
+  readonly badgeTextKey: string;
   readonly badgeVariant: 'blue' | 'teal';
-  readonly title: string;
+  readonly titleKey: string;
   readonly productCount: number;
-  readonly ctaText: string;
+  readonly ctaTextKey: string;
   readonly href: string;
   readonly imageUrl: string;
-  readonly imageAlt: string;
+  readonly imageAltKey: string;
   readonly overlayGradient: string;
   readonly hoverOverlayColor: string;
 }
@@ -24,28 +24,28 @@ export interface ProductCategory {
 export const productCategories: readonly ProductCategory[] = [
   {
     id: 'iardt',
-    badgeText: 'IARDT',
+    badgeTextKey: 'sections.products.iardt.badge',
     badgeVariant: 'blue',
-    title: 'Incendie, Accidents, Risques Divers & Transport',
+    titleKey: 'sections.products.iardt.title',
     productCount: 14,
-    ctaText: 'Explorer les produits IARDT',
+    ctaTextKey: 'sections.products.iardt.cta',
     href: ROUTES.PRODUCTS_IARDT,
     imageUrl: getImage(images.services.businessMeeting, 'business'),
-    imageAlt: 'Assurance IARDT - Entreprises et professionnels',
+    imageAltKey: 'sections.products.iardt.imageAlt',
     overlayGradient:
       'linear-gradient(to top, rgba(17,27,46,0.95) 0%, rgba(17,27,46,0.20) 60%)',
     hoverOverlayColor: 'rgba(17,27,46,0.85)',
   },
   {
     id: 'vie',
-    badgeText: 'Épargne',
+    badgeTextKey: 'sections.products.life.badge',
     badgeVariant: 'teal',
-    title: 'Prévoyance & Épargne',
+    titleKey: 'sections.products.life.title',
     productCount: 8,
-    ctaText: "Explorer l'assurance vie",
+    ctaTextKey: 'sections.products.life.cta',
     href: ROUTES.PRODUCTS_VIE,
     imageUrl: getImage(images.clients.family, 'family'),
-    imageAlt: 'Assurance Vie - Particuliers et familles',
+    imageAltKey: 'sections.products.life.imageAlt',
     overlayGradient:
       'linear-gradient(to top, rgba(26,158,117,0.92) 0%, rgba(26,158,117,0.25) 60%)',
     hoverOverlayColor: 'rgba(26,158,117,0.85)',

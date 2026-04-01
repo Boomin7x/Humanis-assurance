@@ -2,6 +2,7 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Box, Button, Container, Grid } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionHeader, SectionWrapper, ServiceCard } from "@/components/ui";
 import { GRID_MOBILE } from "@/theme/responsive";
@@ -13,12 +14,12 @@ import { getImage, images } from "@/utils/imageLoader";
  */
 interface ServiceData {
   readonly icon: string;
-  readonly title: string;
-  readonly description: string;
+  readonly titleKey: string;
+  readonly descriptionKey: string;
   readonly href: string;
   readonly accentColor: "blue" | "teal";
   readonly photo: string;
-  readonly photoAlt: string;
+  readonly photoAltKey: string;
 }
 
 /**
@@ -27,33 +28,30 @@ interface ServiceData {
 const SERVICES_DATA: readonly ServiceData[] = [
   {
     icon: "mdi:shield-check",
-    title: "Courtage d'assurances",
-    description:
-      "Accompagnement personnalisé pour trouver les meilleures couvertures adaptées à vos besoins spécifiques. Audit, conseil et gestion de vos contrats.",
+    titleKey: "services.brokerage.title",
+    descriptionKey: "services.brokerage.description",
     href: "/services#courtage",
     accentColor: "blue",
     photo: getImage(images.office.teamAtWork, "team"),
-    photoAlt: "Équipe Humanis Assurances - Experts en courtage",
+    photoAltKey: "services.brokerage.photoAlt",
   },
   {
     icon: "mdi:chart-line",
-    title: "Risk Management",
-    description:
-      "Analyse et gestion proactive des risques pour protéger vos actifs et optimiser vos coûts d'assurance. Identification et maîtrise des risques.",
+    titleKey: "services.riskManagement.title",
+    descriptionKey: "services.riskManagement.description",
     href: "/services#risk-management",
     accentColor: "teal",
     photo: getImage(images.services.businessMeeting, "business"),
-    photoAlt: "Consultation risk management - Analyse des risques",
+    photoAltKey: "services.riskManagement.photoAlt",
   },
   {
     icon: "mdi:earth",
-    title: "Programmes Internationaux",
-    description:
-      "Solutions d'assurance globales pour les entreprises opérant à l'international et leurs expatriés. Couverture mondiale adaptée.",
+    titleKey: "services.international.title",
+    descriptionKey: "services.international.description",
     href: "/services#international",
     accentColor: "blue",
     photo: getImage(images.services.international, "international"),
-    photoAlt: "Programmes internationaux - Couverture mondiale",
+    photoAltKey: "services.international.photoAlt",
   },
 ] as const;
 
@@ -74,6 +72,7 @@ export interface ServicesSectionProps {
  */
 export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(
   ({ onViewAllServices }) => {
+    const { t } = useTranslation();
     const handleViewAll = (): void => {
       if (onViewAllServices) {
         onViewAllServices();
@@ -92,8 +91,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(
       >
         <Container maxWidth={false} sx={{ maxWidth: 1440 }}>
           <SectionHeader
-            overline="Nos services"
-            title="Solutions d'assurance complètes"
+            overline={t("sections.services.overline")}
+            title={t("sections.services.title")}
             align="center"
             animationDelay={0.1}
           />
@@ -107,12 +106,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(
               <Grid key={index} size={GRID_MOBILE.thirdOnDesktop}>
                 <ServiceCard
                   icon={service.icon}
-                  title={service.title}
-                  description={service.description}
+                  title={t(service.titleKey)}
+                  description={t(service.descriptionKey)}
                   href={service.href}
                   accentColor={service.accentColor}
                   photo={service.photo}
-                  photoAlt={service.photoAlt}
+                  photoAlt={t(service.photoAltKey)}
                   animated
                 />
               </Grid>
@@ -141,7 +140,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(
               }}
               aria-label="View all insurance services"
             >
-              Découvrir tous nos services
+{t("sections.services.cta")}
             </Button>
           </Box>
         </Container>

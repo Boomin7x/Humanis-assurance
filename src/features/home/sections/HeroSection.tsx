@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { HumanisImage } from "@/components/ui";
 import { NAV_HEIGHT, NAV_HEIGHT_MOBILE } from "@/constants/layout";
@@ -17,7 +18,6 @@ import {
   BRAND_100,
   NAVY_800,
   NEUTRAL_700,
-  PRIMARY_500,
   PRIMARY_700,
   WHITE,
 } from "@/theme/tokens";
@@ -42,6 +42,7 @@ export interface HeroSectionProps {
  */
 export const HeroSection: React.FC<HeroSectionProps> = React.memo(
   ({ onGetAudit, onViewProducts }) => {
+    const { t } = useTranslation();
     const handleGetAudit = (): void => {
       if (onGetAudit) {
         onGetAudit();
@@ -112,7 +113,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(
                         textTransform: "uppercase",
                       }}
                     >
-                      Agrée CIMA — Réf. 2009/042
+                      {t("hero.trust.certified")}
                     </Typography>
                   </Box>
 
@@ -127,11 +128,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(
                       letterSpacing: "-0.02em",
                     }}
                   >
-                    Sécurité <br />
-                    <span style={{ color: PRIMARY_500 }}>
-                      Patrimoniale
-                    </span>{" "}
-                    <br />& Conseils.
+                    {t("hero.title")}
                   </Typography>
 
                   <Typography
@@ -142,9 +139,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(
                       lineHeight: 1.6,
                     }}
                   >
-                    Courtage d'assurances, Risk Management et Programmes
-                    Internationaux. Une approche rigoureuse pour les
-                    institutions et les particuliers au Cameroun.
+                    {t("hero.subtitle")}
                   </Typography>
 
                   <Stack
@@ -166,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(
                       }}
                       aria-label="Request insurance audit"
                     >
-                      Obtenir un Audit
+                      {t("hero.cta.primary")}
                     </Button>
                     <Button
                       variant="outlined"
@@ -187,7 +182,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(
                       }}
                       aria-label="View insurance products"
                     >
-                      Nos Produits
+                      {t("hero.cta.secondary")}
                     </Button>
                   </Stack>
                 </Stack>

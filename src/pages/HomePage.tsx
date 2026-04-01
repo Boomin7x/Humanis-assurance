@@ -17,6 +17,8 @@
  */
 
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 import {
   AboutSection,
@@ -45,8 +47,14 @@ import {
  * 9. CTASection - Final conversion call-to-action
  */
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
+      <Helmet>
+        <title>{t("pages.home.title")}</title>
+        <meta name="description" content={t("pages.home.description")} />
+      </Helmet>
       <HeroSection />
       <StatsSection />
       <ServicesSection />

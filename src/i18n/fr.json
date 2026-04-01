@@ -53,19 +53,23 @@
       "overline": "Nos produits",
       "title": "Une couverture complète pour chaque besoin",
       "iardt": {
+        "badge": "IARDT",
         "title": "Incendie, Accidents, Risques Divers & Transport",
         "count": "14 produits",
-        "cta": "Explorer"
+        "cta": "Explorer les produits IARDT",
+        "imageAlt": "Assurance IARDT - Entreprises et professionnels"
       },
       "life": {
+        "badge": "Épargne",
         "title": "Prévoyance & Épargne",
         "count": "8 produits",
-        "cta": "Explorer"
+        "cta": "Explorer l'assurance vie",
+        "imageAlt": "Assurance Vie - Particuliers et familles"
       }
     },
     "process": {
       "overline": "Notre processus",
-      "title": "De la demande à la protection",
+      "title": "Comment nous vous accompagnons",
       "steps": {
         "contact": "Contact initial",
         "audit": "Audit des besoins",
@@ -79,8 +83,9 @@
       "title": "Ce que disent nos clients"
     },
     "partners": {
-      "overline": "Nos partenaires assureurs",
-      "subtitle": "Nous travaillons avec les meilleures compagnies d'assurance du marché"
+      "overline": "Nos Partenaires de Confiance",
+      "title": "Partenaires",
+      "subtitle": "Ils nous font confiance pour protéger leurs intérêts et ceux de leurs clients."
     }
   },
   "pages": {
@@ -88,9 +93,9 @@
       "title": "Humanis Assurances — Courtage d'assurances à Douala, Cameroun",
       "description": "Cabinet de courtage en assurances à Douala. Expertise en courtage, risk management et programmes internationaux pour entreprises et particuliers.",
       "cta": {
-        "title": "Prêt à protéger votre avenir?",
-        "subtitle": "Contactez nos experts pour une solution sur mesure",
-        "button": "Demander un devis gratuit"
+        "title": "Obtenez votre devis d'assurance gratuit",
+        "subtitle": "Nos experts CIMA vous accompagnent pour trouver la meilleure couverture adaptée à vos besoins. Réponse sous 24h garantie.",
+        "button": "Obtenir mon devis gratuit"
       }
     },
     "about": {
@@ -145,13 +150,23 @@
         "title": "Travaillons ensemble",
         "subtitle": "Découvrez comment nous pouvons vous accompagner",
         "button": "Nous contacter"
+      },
+      "hero": {
+        "badge": "Courtier Agréé CIMA depuis 2009",
+        "title": "Leader du courtage d'assurance au Cameroun",
+        "subtitle": "Expertise reconnue en courtage professionnel, risk management, et conformité réglementaire CIMA. Votre partenaire de confiance pour une protection optimale."
       }
     },
     "services": {
       "title": "Nos Services",
       "subtitle": "Courtage · Risk Management · Programmes Internationaux",
       "description": "Découvrez notre gamme complète de services en assurances pour particuliers et entreprises.",
-      "breadcrumb": "Services"
+      "breadcrumb": "Services",
+      "hero": {
+        "title": "Nos Services",
+        "subtitle": "Courtage · Risk Management · Programmes Internationaux",
+        "breadcrumb": "Services"
+      }
     },
     "products": {
       "title": "Nos Produits",
@@ -163,7 +178,12 @@
       "title": "Contactez-nous",
       "subtitle": "Notre équipe vous répond dans les 24 heures",
       "description": "Prenez contact avec nos experts pour discuter de vos besoins en assurance.",
-      "breadcrumb": "Contact"
+      "breadcrumb": "Contact",
+      "hero": {
+        "title": "Contactez-nous",
+        "subtitle": "Protection immédiate • Devis sous 2h • Sans engagement",
+        "breadcrumb": "Contact"
+      }
     }
   },
   "footer": {
@@ -171,11 +191,31 @@
     "services": "Services",
     "products": "Produits",
     "contact": "Contact",
-    "address": "688, Rue Joffre Akwa-Douala",
-    "hours": "Lundi–Vendredi 8h–17h · Samedi 8h–13h",
+    "address": "688, Rue Joffre\nAkwa-Douala, Cameroun",
+    "hours": "**Lun-Ven:** 8h00 – 17h00\n**Samedi:** 8h00 – 13h00\n*Consultation sur RDV*",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
-    "copyright": "© 2024 Humanis Assurances. Tous droits réservés."
+    "copyright": "Tous droits réservés.",
+    "regulatory": "Cabinet de courtage d'assurances agréé par la CIMA • Siret: [À renseigner] • Code APE: 6622Z",
+    "accreditations": "Agréments & Certifications",
+    "cima": {
+      "title": "Agréé CIMA",
+      "description": "Courtier d'assurances certifié"
+    },
+    "experience": {
+      "title": "Depuis 2009",
+      "description": "15+ ans d'expertise"
+    },
+    "followUs": "Suivez-nous",
+    "social": {
+      "linkedin": "Suivez-nous sur LinkedIn",
+      "facebook": "Suivez-nous sur Facebook",
+      "whatsapp": "Contactez-nous sur WhatsApp"
+    },
+    "protection": {
+      "title": "Protection Assurée",
+      "description": "Nous protégeons plus de **500 clients** avec des solutions d'assurance adaptées aux entreprises et particuliers."
+    }
   },
   "whatsapp": {
     "tooltip": "Discutez avec nous sur WhatsApp",
@@ -216,6 +256,136 @@
     "email": "Email",
     "website": "Site web",
     "loading": "Chargement...",
-    "error": "Une erreur est survenue"
+    "error": "Une erreur est survenue",
+    "home": "Accueil",
+    "allProducts": "Tous les produits",
+    "iardt": "IARDT",
+    "lifeInsurance": "Assurance Vie",
+    "certified": "Certifié",
+    "accredited": "Agréé",
+    "clients": "clients",
+    "experience": "ans d'expertise",
+    "broker": "Courtier",
+    "memberOf": "Membre"
+  },
+  "products": {
+    "hero": {
+      "title": "Nos Produits",
+      "subtitle": "IARDT & Assurance Vie — des solutions pour chaque profil",
+      "breadcrumb": "Produits",
+      "tabs": {
+        "all": "Tous les produits",
+        "iardt": "IARDT",
+        "vie": "Assurance Vie"
+      },
+      "trust": {
+        "accredited": "Agréé ACPR",
+        "certified": "Courtier certifié",
+        "clients": "50,000+ clients",
+        "experience": "15+ ans d'expertise"
+      },
+      "badges": {
+        "orias": "ORIAS N° 12345678",
+        "ffa": "Membre FFA",
+        "iso": "Certifié ISO 27001"
+      }
+    },
+    "iardt": {
+      "title": "Incendie, Accidents, Risques Divers & Transport",
+      "description": "Une protection complète pour vos biens et activités"
+    },
+    "vie": {
+      "title": "Prévoyance & Épargne",
+      "description": "Construisez et protégez votre avenir financier"
+    },
+    "filter": {
+      "search": "Rechercher un produit...",
+      "clientType": "Type de client",
+      "individual": "Particulier",
+      "company": "Entreprise",
+      "startQuiz": "Commencer le quiz",
+      "findProduct": "Trouver mon produit"
+    },
+    "quiz": {
+      "title": "Trouvez le produit idéal",
+      "subtitle": "Répondez à quelques questions pour obtenir des recommandations personnalisées",
+      "start": "Commencer le quiz",
+      "next": "Suivant",
+      "previous": "Précédent",
+      "finish": "Terminer",
+      "recommendations": "Nos recommandations",
+      "match": "Correspondance"
+    },
+    "cta": {
+      "title": "Besoin d'aide pour choisir?",
+      "subtitle": "Nos experts vous accompagnent dans le choix de vos assurances",
+      "contact": "Nous contacter",
+      "phone": "05 67 89 45 23"
+    }
+  },
+  "services": {
+    "brokerage": {
+      "title": "Courtage d'assurances",
+      "description": "Accompagnement personnalisé pour trouver les meilleures couvertures adaptées à vos besoins spécifiques. Audit, conseil et gestion de vos contrats.",
+      "photoAlt": "Équipe Humanis Assurances - Experts en courtage"
+    },
+    "riskManagement": {
+      "title": "Risk Management",
+      "description": "Analyse et gestion proactive des risques pour protéger vos actifs et optimiser vos coûts d'assurance. Identification et maîtrise des risques.",
+      "photoAlt": "Consultation risk management - Analyse des risques"
+    },
+    "international": {
+      "title": "Programmes Internationaux",
+      "description": "Solutions d'assurance globales pour les entreprises opérant à l'international et leurs expatriés. Couverture mondiale adaptée.",
+      "photoAlt": "Programmes internationaux - Couverture mondiale"
+    }
+  },
+  "about": {
+    "subtitle": "Cabinet agréé CIMA depuis 2009, Humanis Assurances accompagne plus de 500 entreprises et particuliers dans la protection de leurs biens les plus précieux. Notre expertise reconnue en courtage, risk management et programmes internationaux fait de nous le partenaire de confiance des grandes entreprises camerounaises.",
+    "officeImageAlt": "Siège social Humanis Assurances à Akwa, Douala",
+    "credibility": {
+      "certified": "Cabinet agréé CIMA depuis 2009",
+      "clients": "Plus de 500 clients accompagnés en 15+ ans",
+      "partners": "Partenaire exclusif de 20+ compagnies d'assurance"
+    }
+  },
+  "process": {
+    "steps": {
+      "contact": {
+        "description": "Prise de contact initiale pour comprendre vos besoins"
+      },
+      "audit": {
+        "description": "Analyse détaillée de votre situation et de vos risques"
+      },
+      "proposal": {
+        "description": "Présentation de solutions sur mesure et comparatifs"
+      },
+      "subscription": {
+        "description": "Souscription et mise en place des garanties"
+      },
+      "followup": {
+        "description": "Suivi personnalisé et gestion des renouvellements"
+      }
+    }
+  },
+  "testimonials": {
+    "manufacturing": {
+      "quote": "Humanis nous accompagne depuis 5 ans. Leur expertise en risk management nous a permis d'optimiser nos coûts d'assurance de 25% tout en améliorant notre couverture.",
+      "author": "Marie Ngono",
+      "company": "Cameroun Industries",
+      "sector": "Secteur Manufacturier"
+    },
+    "transport": {
+      "quote": "Service exceptionnel et réactivité remarquable. L'équipe de Humanis comprend parfaitement les enjeux des PME camerounaises.",
+      "author": "Paul Mendomo",
+      "company": "Transport Express",
+      "sector": "Secteur Transport"
+    },
+    "agriculture": {
+      "quote": "Grâce à Humanis, nous avons mis en place une couverture internationale complète pour nos expatriés. Un partenaire de confiance.",
+      "author": "Jean-Claude Eyoum",
+      "company": "Agro-Business",
+      "sector": "Secteur Agricole"
+    }
   }
 }

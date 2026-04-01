@@ -44,19 +44,23 @@
       "overline": "Our products",
       "title": "Complete coverage for every need",
       "iardt": {
+        "badge": "Non-Life",
         "title": "Fire, Accident, Miscellaneous Risks & Transport",
         "count": "14 products",
-        "cta": "Explore"
+        "cta": "Explore Non-Life products",
+        "imageAlt": "Non-Life Insurance - Businesses and professionals"
       },
       "life": {
+        "badge": "Savings",
         "title": "Life & Savings Insurance",
         "count": "8 products",
-        "cta": "Explore"
+        "cta": "Explore life insurance",
+        "imageAlt": "Life Insurance - Individuals and families"
       }
     },
     "process": {
       "overline": "Our process",
-      "title": "From request to protection",
+      "title": "How we support you",
       "steps": {
         "contact": "Initial contact",
         "audit": "Needs assessment",
@@ -70,8 +74,9 @@
       "title": "What our clients say"
     },
     "partners": {
-      "overline": "Our insurance partners",
-      "subtitle": "We work with the best insurance companies in the market"
+      "overline": "Our Trusted Partners",
+      "title": "Partners",
+      "subtitle": "They trust us to protect their interests and those of their clients."
     }
   },
   "pages": {
@@ -79,9 +84,9 @@
       "title": "Humanis Insurance — Insurance Brokerage in Douala, Cameroon",
       "description": "Insurance brokerage company in Douala. Expertise in brokerage, risk management and international programs for businesses and individuals.",
       "cta": {
-        "title": "Ready to protect your future?",
-        "subtitle": "Contact our experts for a tailored solution",
-        "button": "Get free quote"
+        "title": "Get your free insurance quote",
+        "subtitle": "Our CIMA experts support you in finding the best coverage adapted to your needs. Response guaranteed within 24 hours.",
+        "button": "Get my free quote"
       }
     },
     "about": {
@@ -136,13 +141,23 @@
         "title": "Let's work together",
         "subtitle": "Discover how we can support you",
         "button": "Contact us"
+      },
+      "hero": {
+        "badge": "CIMA Approved Broker since 2009",
+        "title": "Leading insurance brokerage in Cameroon",
+        "subtitle": "Recognized expertise in professional brokerage, risk management, and CIMA regulatory compliance. Your trusted partner for optimal protection."
       }
     },
     "services": {
       "title": "Our Services",
       "subtitle": "Brokerage · Risk Management · International Programs",
       "description": "Discover our complete range of insurance services for individuals and businesses.",
-      "breadcrumb": "Services"
+      "breadcrumb": "Services",
+      "hero": {
+        "title": "Our Services",
+        "subtitle": "Brokerage · Risk Management · International Programs",
+        "breadcrumb": "Services"
+      }
     },
     "products": {
       "title": "Our Products",
@@ -154,7 +169,12 @@
       "title": "Contact us",
       "subtitle": "Our team responds within 24 hours",
       "description": "Get in touch with our experts to discuss your insurance needs.",
-      "breadcrumb": "Contact"
+      "breadcrumb": "Contact",
+      "hero": {
+        "title": "Contact us",
+        "subtitle": "Immediate protection • Quote within 2h • No commitment",
+        "breadcrumb": "Contact"
+      }
     }
   },
   "footer": {
@@ -162,11 +182,31 @@
     "services": "Services",
     "products": "Products",
     "contact": "Contact",
-    "address": "688, Rue Joffre Akwa-Douala",
-    "hours": "Monday–Friday 8am–5pm · Saturday 8am–1pm",
+    "address": "688, Rue Joffre\nAkwa-Douala, Cameroon",
+    "hours": "**Mon-Fri:** 8:00 AM – 5:00 PM\n**Saturday:** 8:00 AM – 1:00 PM\n*Consultation by appointment*",
     "legal": "Legal mentions",
     "privacy": "Privacy policy",
-    "copyright": "© 2024 Humanis Insurance. All rights reserved."
+    "copyright": "All rights reserved.",
+    "regulatory": "Insurance brokerage firm approved by CIMA • Siret: [To be provided] • APE Code: 6622Z",
+    "accreditations": "Accreditations & Certifications",
+    "cima": {
+      "title": "CIMA Approved",
+      "description": "Certified insurance broker"
+    },
+    "experience": {
+      "title": "Since 2009",
+      "description": "15+ years of expertise"
+    },
+    "followUs": "Follow us",
+    "social": {
+      "linkedin": "Follow us on LinkedIn",
+      "facebook": "Follow us on Facebook",
+      "whatsapp": "Contact us on WhatsApp"
+    },
+    "protection": {
+      "title": "Assured Protection",
+      "description": "We protect over **500 clients** with insurance solutions adapted to businesses and individuals."
+    }
   },
   "contact": {
     "form": {
@@ -203,6 +243,136 @@
     "email": "Email",
     "website": "Website",
     "loading": "Loading...",
-    "error": "An error occurred"
+    "error": "An error occurred",
+    "home": "Home",
+    "allProducts": "All products",
+    "iardt": "Non-Life",
+    "lifeInsurance": "Life Insurance",
+    "certified": "Certified",
+    "accredited": "Accredited",
+    "clients": "clients",
+    "experience": "years experience",
+    "broker": "Broker",
+    "memberOf": "Member of"
+  },
+  "products": {
+    "hero": {
+      "title": "Our Products",
+      "subtitle": "Non-Life & Life Insurance — solutions for every profile",
+      "breadcrumb": "Products",
+      "tabs": {
+        "all": "All products",
+        "iardt": "Non-Life",
+        "vie": "Life Insurance"
+      },
+      "trust": {
+        "accredited": "ACPR Accredited",
+        "certified": "Certified Broker",
+        "clients": "50,000+ clients",
+        "experience": "15+ years experience"
+      },
+      "badges": {
+        "orias": "ORIAS No. 12345678",
+        "ffa": "FFA Member",
+        "iso": "ISO 27001 Certified"
+      }
+    },
+    "iardt": {
+      "title": "Fire, Accident, Miscellaneous Risks & Transport",
+      "description": "Complete protection for your assets and activities"
+    },
+    "vie": {
+      "title": "Life & Savings Insurance",
+      "description": "Build and protect your financial future"
+    },
+    "filter": {
+      "search": "Search for a product...",
+      "clientType": "Client type",
+      "individual": "Individual",
+      "company": "Company",
+      "startQuiz": "Start quiz",
+      "findProduct": "Find my product"
+    },
+    "quiz": {
+      "title": "Find the perfect product",
+      "subtitle": "Answer a few questions to get personalized recommendations",
+      "start": "Start quiz",
+      "next": "Next",
+      "previous": "Previous",
+      "finish": "Finish",
+      "recommendations": "Our recommendations",
+      "match": "Match"
+    },
+    "cta": {
+      "title": "Need help choosing?",
+      "subtitle": "Our experts help you choose the right insurance",
+      "contact": "Contact us",
+      "phone": "05 67 89 45 23"
+    }
+  },
+  "services": {
+    "brokerage": {
+      "title": "Insurance Brokerage",
+      "description": "Personalized support to find the best coverage tailored to your specific needs. Audit, advice and management of your contracts.",
+      "photoAlt": "Humanis Insurance Team - Brokerage Experts"
+    },
+    "riskManagement": {
+      "title": "Risk Management",
+      "description": "Proactive risk analysis and management to protect your assets and optimize your insurance costs. Risk identification and control.",
+      "photoAlt": "Risk management consultation - Risk analysis"
+    },
+    "international": {
+      "title": "International Programs",
+      "description": "Global insurance solutions for companies operating internationally and their expatriates. Adapted worldwide coverage.",
+      "photoAlt": "International programs - Global coverage"
+    }
+  },
+  "about": {
+    "subtitle": "CIMA approved broker since 2009, Humanis Insurance supports over 500 companies and individuals in protecting their most precious assets. Our recognized expertise in brokerage, risk management and international programs makes us the trusted partner of major Cameroonian companies.",
+    "officeImageAlt": "Humanis Insurance headquarters in Akwa, Douala",
+    "credibility": {
+      "certified": "CIMA approved broker since 2009",
+      "clients": "Over 500 clients supported in 15+ years",
+      "partners": "Exclusive partner of 20+ insurance companies"
+    }
+  },
+  "process": {
+    "steps": {
+      "contact": {
+        "description": "Initial contact to understand your needs"
+      },
+      "audit": {
+        "description": "Detailed analysis of your situation and risks"
+      },
+      "proposal": {
+        "description": "Presentation of tailored solutions and comparisons"
+      },
+      "subscription": {
+        "description": "Subscription and implementation of coverage"
+      },
+      "followup": {
+        "description": "Personalized follow-up and renewal management"
+      }
+    }
+  },
+  "testimonials": {
+    "manufacturing": {
+      "quote": "Humanis has been supporting us for 5 years. Their risk management expertise allowed us to optimize our insurance costs by 25% while improving our coverage.",
+      "author": "Marie Ngono",
+      "company": "Cameroon Industries",
+      "sector": "Manufacturing Sector"
+    },
+    "transport": {
+      "quote": "Exceptional service and remarkable responsiveness. The Humanis team perfectly understands the challenges of Cameroonian SMEs.",
+      "author": "Paul Mendomo",
+      "company": "Transport Express",
+      "sector": "Transport Sector"
+    },
+    "agriculture": {
+      "quote": "Thanks to Humanis, we have implemented comprehensive international coverage for our expatriates. A trusted partner.",
+      "author": "Jean-Claude Eyoum",
+      "company": "Agro-Business",
+      "sector": "Agricultural Sector"
+    }
   }
 }

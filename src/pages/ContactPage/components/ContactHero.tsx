@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { HumanisImage } from "@/components/ui";
 import { images } from "@/utils/imageLoader";
@@ -20,6 +21,7 @@ const fadeInUp = {
 };
 
 export const ContactHero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Box
       component="section"
@@ -73,9 +75,9 @@ export const ContactHero: React.FC = () => {
                 }}
               >
                 <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Accueil
+                {t('common.home')}
               </Link>
-              <Typography color="white">Contact</Typography>
+              <Typography color="white">{t('contact.hero.breadcrumb')}</Typography>
             </Breadcrumbs>
 
             {/* H1 Title */}
@@ -89,7 +91,7 @@ export const ContactHero: React.FC = () => {
                 textAlign: "center",
               }}
             >
-              Contactez-nous
+              {t('contact.hero.title')}
             </Typography>
 
             {/* Subtitle */}
@@ -103,7 +105,7 @@ export const ContactHero: React.FC = () => {
                 maxWidth: "600px",
               }}
             >
-              Protection immédiate • Devis sous 2h • Sans engagement
+              {t('contact.hero.subtitle')}
             </Typography>
           </Stack>
         </motion.div>

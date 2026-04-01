@@ -3,6 +3,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper } from "@/components/ui";
 import { animationPresets } from "@/theme/motion";
@@ -26,6 +27,8 @@ export interface CTASectionProps {
  * - Mobile-optimized touch targets
  */
 export const CTASection: React.FC<CTASectionProps> = React.memo(({ onGetQuote }) => {
+  const { t } = useTranslation();
+
   const handleGetQuote = (): void => {
     if (onGetQuote) {
       onGetQuote();
@@ -61,7 +64,7 @@ export const CTASection: React.FC<CTASectionProps> = React.memo(({ onGetQuote })
                 textAlign: "center",
               }}
             >
-              Obtenez votre devis d'assurance gratuit
+{t("pages.home.cta.title")}
             </Typography>
 
             <Typography
@@ -78,8 +81,7 @@ export const CTASection: React.FC<CTASectionProps> = React.memo(({ onGetQuote })
                 fontWeight: 400,
               }}
             >
-              Nos experts CIMA vous accompagnent pour trouver la meilleure couverture
-              adaptée à vos besoins. Réponse sous 24h garantie.
+{t("pages.home.cta.subtitle")}
             </Typography>
 
             <Button
@@ -111,7 +113,7 @@ export const CTASection: React.FC<CTASectionProps> = React.memo(({ onGetQuote })
               }}
               aria-label="Get free insurance quote"
             >
-              Obtenir mon devis gratuit
+{t("pages.home.cta.button")}
             </Button>
           </motion.div>
         </Box>

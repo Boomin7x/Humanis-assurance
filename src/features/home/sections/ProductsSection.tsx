@@ -1,6 +1,7 @@
 // src/features/home/sections/ProductsSection.tsx
 import { Container, Grid } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionHeader, SectionWrapper } from "@/components/ui";
 import { ProductCategoryCard } from "@/features/home/components/ProductCategoryCard";
@@ -18,6 +19,8 @@ import { GRID_MOBILE } from "@/theme/responsive";
  * with distinct branding for each category
  */
 export const ProductsSection: React.FC = React.memo(() => {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper
       background="dark"
@@ -27,8 +30,8 @@ export const ProductsSection: React.FC = React.memo(() => {
     >
       <Container maxWidth={false} sx={{ maxWidth: 1440 }}>
         <SectionHeader
-          overline="Nos produits"
-          title="Une couverture complète pour chaque besoin"
+          overline={t("sections.products.overline")}
+          title={t("sections.products.title")}
           align="center"
           variant="dark"
           animationDelay={0.1}
@@ -42,13 +45,13 @@ export const ProductsSection: React.FC = React.memo(() => {
           {productCategories.map((category, index) => (
             <Grid key={category.id} size={GRID_MOBILE.halfOnDesktop}>
               <ProductCategoryCard
-                badgeText={category.badgeText}
+                badgeText={t(category.badgeTextKey)}
                 badgeVariant={category.badgeVariant}
-                title={category.title}
+                title={t(category.titleKey)}
                 productCount={category.productCount}
-                ctaText={category.ctaText}
+                ctaText={t(category.ctaTextKey)}
                 imageUrl={category.imageUrl}
-                imageAlt={category.imageAlt}
+                imageAlt={t(category.imageAltKey)}
                 overlayGradient={category.overlayGradient}
                 hoverOverlayColor={category.hoverOverlayColor}
                 href={category.href}

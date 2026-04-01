@@ -53,11 +53,11 @@ import LanguageToggle from "../ui/LanguageToggle";
 
 // Navigation links configuration - Insurance platform focused
 const navLinks = [
-  { key: "home", label: "Accueil", path: "/" },
-  { key: "about", label: "Notre Cabinet", path: "/a-propos" },
-  { key: "services", label: "Expertises", path: "/services" },
-  { key: "products", label: "Solutions", path: "/produits" },
-  { key: "contact", label: "Nous Contacter", path: "/contact" },
+  { key: "home", path: "/" },
+  { key: "about", path: "/a-propos" },
+  { key: "services", path: "/services" },
+  { key: "products", path: "/produits" },
+  { key: "contact", path: "/contact" },
 ] as const;
 
 // Logo component with trust indicators - Declared outside main component
@@ -169,7 +169,10 @@ const NavLinks: React.FC<NavLinksProps> = ({
   isMobile = false,
   onLinkClick,
   isActiveLink,
-}) => (
+}) => {
+  const { t } = useTranslation();
+
+  return (
   <Stack
     direction={isMobile ? "column" : "row"}
     spacing={isMobile ? { xs: 0.5, sm: 1 } : { xs: 1, sm: 2 }}
@@ -237,11 +240,12 @@ const NavLinks: React.FC<NavLinksProps> = ({
           }),
         }}
       >
-        {link.label}
+        {t(`nav.${link.key}`)}
       </Button>
     ))}
   </Stack>
-);
+  );
+};
 
 // CTA Button Component - Declared outside main component
 interface CTAButtonProps {

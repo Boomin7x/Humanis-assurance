@@ -1,6 +1,7 @@
 // src/features/home/sections/ProcessSection.tsx
 import { Container, Grid } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { SectionHeader, SectionWrapper } from "@/components/ui";
 import { ProcessStepCard } from "@/features/home/components/ProcessStepCard";
@@ -19,6 +20,8 @@ import { processSteps } from "@/features/home/data/processSteps";
  * Builds trust through process transparency
  */
 export const ProcessSection: React.FC = React.memo(() => {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper
       background="white"
@@ -28,8 +31,8 @@ export const ProcessSection: React.FC = React.memo(() => {
     >
       <Container maxWidth={false} sx={{ maxWidth: 1440 }}>
         <SectionHeader
-          overline="Notre processus"
-          title="Comment nous vous accompagnons"
+          overline={t("sections.process.overline")}
+          title={t("sections.process.title")}
           align="center"
           animationDelay={0.1}
         />
@@ -43,8 +46,8 @@ export const ProcessSection: React.FC = React.memo(() => {
             <Grid key={index} size={{ xs: 6, sm: 4, md: 2.4 }}>
               <ProcessStepCard
                 stepNumber={step.stepNumber}
-                title={step.title}
-                description={step.description}
+                title={t(step.titleKey)}
+                description={t(step.descriptionKey)}
                 icon={step.icon}
                 animationDelay={index * 0.1}
               />

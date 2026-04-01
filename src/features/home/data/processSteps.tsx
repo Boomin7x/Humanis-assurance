@@ -9,8 +9,8 @@ import GroupsIcon from '@mui/icons-material/Groups';
  */
 export interface ProcessStep {
   readonly stepNumber: string;
-  readonly title: string;
-  readonly description: string;
+  readonly titleKey: string;
+  readonly descriptionKey: string;
   readonly icon: React.ReactElement;
 }
 
@@ -20,32 +20,32 @@ export interface ProcessStep {
 export const processSteps: readonly ProcessStep[] = [
   {
     stepNumber: '01',
-    title: 'Contact initial',
-    description: 'Prise de contact initiale pour comprendre vos besoins',
+    titleKey: 'sections.process.steps.contact',
+    descriptionKey: 'process.steps.contact.description',
     icon: <PhoneIcon />,
   },
   {
     stepNumber: '02',
-    title: 'Audit des risques',
-    description: 'Analyse détaillée de votre situation et de vos risques',
+    titleKey: 'sections.process.steps.audit',
+    descriptionKey: 'process.steps.audit.description',
     icon: <SecurityIcon />,
   },
   {
     stepNumber: '03',
-    title: 'Proposition',
-    description: 'Présentation de solutions sur mesure et comparatifs',
+    titleKey: 'sections.process.steps.proposal',
+    descriptionKey: 'process.steps.proposal.description',
     icon: <BusinessCenterIcon />,
   },
   {
     stepNumber: '04',
-    title: 'Souscription',
-    description: 'Souscription et mise en place des garanties',
+    titleKey: 'sections.process.steps.subscription',
+    descriptionKey: 'process.steps.subscription.description',
     icon: <CheckCircleIcon />,
   },
   {
     stepNumber: '05',
-    title: 'Suivi',
-    description: 'Suivi personnalisé et gestion des renouvellements',
+    titleKey: 'sections.process.steps.followup',
+    descriptionKey: 'process.steps.followup.description',
     icon: <GroupsIcon />,
   },
 ] as const;

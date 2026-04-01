@@ -3,6 +3,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { HumanisImage, SectionHeader, SectionWrapper } from "@/components/ui";
 import { TOUCH_TARGETS } from "@/theme/responsive";
@@ -23,7 +24,7 @@ import { getImage, images } from "@/utils/imageLoader";
  * Credibility indicator data structure
  */
 interface CredibilityIndicator {
-  readonly text: string;
+  readonly textKey: string;
   readonly highlighted: boolean;
 }
 
@@ -32,15 +33,15 @@ interface CredibilityIndicator {
  */
 const CREDIBILITY_INDICATORS: readonly CredibilityIndicator[] = [
   {
-    text: "Cabinet agréé CIMA depuis 2009",
+    textKey: "about.credibility.certified",
     highlighted: true,
   },
   {
-    text: "Plus de 500 clients accompagnés en 15+ ans",
+    textKey: "about.credibility.clients",
     highlighted: false,
   },
   {
-    text: "Partenaire exclusif de 20+ compagnies d'assurance",
+    textKey: "about.credibility.partners",
     highlighted: false,
   },
 ] as const;
@@ -62,6 +63,7 @@ export interface AboutSectionProps {
  */
 export const AboutSection: React.FC<AboutSectionProps> = React.memo(
   ({ onLearnMore }) => {
+    const { t } = useTranslation();
     const handleLearnMore = (): void => {
       if (onLearnMore) {
         onLearnMore();
@@ -84,9 +86,9 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(
           <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
             <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: 1 }}>
               <SectionHeader
-                overline="À propos"
-                title="Leader du courtage d'assurance au Cameroun"
-                subtitle="Cabinet agréé CIMA depuis 2009, Humanis Assurances accompagne plus de 500 entreprises et particuliers dans la protection de leurs biens les plus précieux. Notre expertise reconnue en courtage, risk management et programmes internationaux fait de nous le partenaire de confiance des grandes entreprises camerounaises."
+                overline={t("sections.about.overline")}
+                title={t("sections.about.title")}
+                subtitle={t("about.subtitle")}
                 align="left"
               />
 
@@ -124,7 +126,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(
                         fontWeight: indicator.highlighted ? 600 : 500,
                       }}
                     >
-                      {indicator.text}
+{t(indicator.textKey)}
                     </Typography>
                   </Stack>
                 ))}
@@ -162,7 +164,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(
                   }}
                   aria-label="Learn more about Humanis Assurances"
                 >
-                  En savoir plus
+{t("sections.about.cta")}
                 </Button>
               </Box>
             </Grid>
@@ -170,7 +172,7 @@ export const AboutSection: React.FC<AboutSectionProps> = React.memo(
             <Grid size={{ xs: 12, md: 6 }} order={{ xs: 2, md: 2 }}>
               <HumanisImage
                 src={getImage(images.office.exterior, "office")}
-                alt="Siège social Humanis Assurances à Akwa, Douala"
+alt={t("about.officeImageAlt")}
                 ratio="4/3"
                 radius={8}
               />

@@ -9,7 +9,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 export interface StatData {
   readonly number: number;
   readonly suffix?: string;
-  readonly label: string;
+  readonly labelKey: string;
   readonly icon: React.ReactElement;
 }
 
@@ -20,24 +20,24 @@ export const statsData: readonly StatData[] = [
   {
     number: 500,
     suffix: "+",
-    label: "Clients protégés",
+    labelKey: "sections.stats.clients",
     icon: <GroupsIcon />,
   },
   {
     number: 15,
     suffix: "+",
-    label: "Années d'expérience",
+    labelKey: "sections.stats.experience",
     icon: <BusinessCenterIcon />,
   },
   {
     number: 20,
     suffix: "+",
-    label: "Partenaires assureurs",
+    labelKey: "sections.stats.partners",
     icon: <SecurityIcon />,
   },
   {
     number: 3,
-    label: "Domaines d'expertise",
+    labelKey: "sections.stats.expertise",
     icon: <CheckCircleIcon />,
   },
 ] as const;

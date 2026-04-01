@@ -175,7 +175,7 @@ const Footer: React.FC = () => {
                     textTransform: "uppercase",
                   }}
                 >
-                  Agréments & Certifications
+                  {t("footer.accreditations", "Agréments & Certifications")}
                 </Typography>
 
                 <Stack spacing={1.5}>
@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
                           lineHeight: 1.2,
                         }}
                       >
-                        Agréé CIMA
+                        {t("footer.cima.title", "Agréé CIMA")}
                       </Typography>
                       <Typography
                         variant="caption"
@@ -212,7 +212,7 @@ const Footer: React.FC = () => {
                           lineHeight: 1.2,
                         }}
                       >
-                        Courtier d'assurances certifié
+                        {t("footer.cima.description", "Courtier d'assurances certifié")}
                       </Typography>
                     </Box>
                   </Box>
@@ -242,7 +242,7 @@ const Footer: React.FC = () => {
                           lineHeight: 1.2,
                         }}
                       >
-                        Depuis 2009
+                        {t("footer.experience.title", "Depuis 2009")}
                       </Typography>
                       <Typography
                         variant="caption"
@@ -252,7 +252,7 @@ const Footer: React.FC = () => {
                           lineHeight: 1.2,
                         }}
                       >
-                        15+ ans d'expertise
+                        {t("footer.experience.description", "15+ ans d'expertise")}
                       </Typography>
                     </Box>
                   </Box>
@@ -272,7 +272,7 @@ const Footer: React.FC = () => {
                       display: "block",
                     }}
                   >
-                    Suivez-nous
+                    {t("footer.followUs", "Suivez-nous")}
                   </Typography>
                   <Stack
                     direction="row"
@@ -308,7 +308,7 @@ const Footer: React.FC = () => {
                         },
                         transition: "all 200ms ease",
                       }}
-                      aria-label="Suivez-nous sur LinkedIn"
+                      aria-label={t("footer.social.linkedin", "Suivez-nous sur LinkedIn")}
                     >
                       <LinkedIn
                         sx={{ fontSize: { xs: "1.25rem", sm: "1.125rem" } }}
@@ -336,7 +336,7 @@ const Footer: React.FC = () => {
                         },
                         transition: "all 200ms ease",
                       }}
-                      aria-label="Suivez-nous sur Facebook"
+                      aria-label={t("footer.social.facebook", "Suivez-nous sur Facebook")}
                     >
                       <Facebook
                         sx={{ fontSize: { xs: "1.25rem", sm: "1.125rem" } }}
@@ -364,7 +364,7 @@ const Footer: React.FC = () => {
                         },
                         transition: "all 200ms ease",
                       }}
-                      aria-label="Contactez-nous sur WhatsApp"
+                      aria-label={t("footer.social.whatsapp", "Contactez-nous sur WhatsApp")}
                     >
                       <WhatsApp
                         sx={{ fontSize: { xs: "1.25rem", sm: "1.125rem" } }}
@@ -465,9 +465,12 @@ const Footer: React.FC = () => {
                     lineHeight: { xs: 1.5, sm: 1.6 },
                   }}
                 >
-                  688, Rue Joffre
-                  <br />
-                  Akwa-Douala, Cameroun
+                  {t("footer.address", "688, Rue Joffre\nAkwa-Douala, Cameroun").split('\n').map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i === 0 && <br />}
+                    </React.Fragment>
+                  ))}
                 </Typography>
               </Stack>
 
@@ -526,7 +529,7 @@ const Footer: React.FC = () => {
                       mb: 0.5,
                     }}
                   >
-                    Horaires d'ouverture
+                    {t("footer.hours.title", "Horaires d'ouverture")}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -536,13 +539,18 @@ const Footer: React.FC = () => {
                       fontSize: "0.8125rem",
                     }}
                   >
-                    <strong>Lun-Ven:</strong> 8h00 – 17h00
-                    <br />
-                    <strong>Samedi:</strong> 8h00 – 13h00
-                    <br />
-                    <span style={{ color: TEAL_500, fontWeight: 500 }}>
-                      Consultation sur RDV
-                    </span>
+                    {t("footer.hours", "**Lun-Ven:** 8h00 – 17h00\n**Samedi:** 8h00 – 13h00\n*Consultation sur RDV*").split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line.includes('**') ? (
+                          <strong>{line.replace(/\*\*/g, '')}</strong>
+                        ) : line.includes('*') ? (
+                          <span style={{ color: TEAL_500, fontWeight: 500 }}>
+                            {line.replace(/\*/g, '')}
+                          </span>
+                        ) : line}
+                        {i < 2 && <br />}
+                      </React.Fragment>
+                    ))}
                   </Typography>
                 </Box>
               </Stack>
@@ -574,7 +582,7 @@ const Footer: React.FC = () => {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    Protection Assurée
+                    {t("footer.protection.title", "Protection Assurée")}
                   </Typography>
                 </Stack>
                 <Typography
@@ -586,10 +594,9 @@ const Footer: React.FC = () => {
                     display: "block",
                   }}
                 >
-                  Nous protégeons plus de{" "}
-                  <strong style={{ color: WHITE }}>500 clients</strong> avec des
-                  solutions d'assurance adaptées aux entreprises et
-                  particuliers.
+                  {t("footer.protection.description", "Nous protégeons plus de **500 clients** avec des solutions d'assurance adaptées aux entreprises et particuliers.").split('**').map((part, i) =>
+                    i % 2 === 1 ? <strong key={i} style={{ color: WHITE }}>{part}</strong> : part
+                  )}
                 </Typography>
               </Box>
             </Stack>
@@ -645,8 +652,7 @@ const Footer: React.FC = () => {
                   maxWidth: { xs: "100%", md: "600px" },
                 }}
               >
-                Cabinet de courtage d'assurances agréé par la CIMA • Siret: [À
-                renseigner] • Code APE: 6622Z
+                {t("footer.regulatory", "Cabinet de courtage d'assurances agréé par la CIMA • Siret: [À renseigner] • Code APE: 6622Z")}
               </Typography>
             </Box>
 
